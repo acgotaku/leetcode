@@ -2,23 +2,23 @@
 // Author : acgotaku311
 // Date   : 2017-07-15
 
-/********************************************************************************** 
-* 
-* The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: 
+/**********************************************************************************
+*
+* The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
 * (you may want to display this pattern in a fixed font for better legibility)
-* 
+*
 * P   A   H   N
 * A P L S I I G
 * Y   I   R
-* 
+*
 * And then read line by line: "PAHNAPLSIIGYIR"
-* 
+*
 * Write the code that will take a string and make this conversion given a number of rows:
-* 
+*
 * string convert(string text, int nRows);
-* 
+*
 * convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
-* 
+*
 * This is the zigzag pattern
 * Δ=2n-2    1                           2n-1                         4n-3
 * Δ=        2                     2n-2  2n                    4n-4   4n-2
@@ -30,38 +30,38 @@
 
 **********************************************************************************/
 
-var convert = function(s, numRows) {
-  var pos = 0;
-  var len = s.length;
-  var result = "";
-  var step1 = 0;
-  var step2 = 0;
+export default function convert (s, numRows) {
+  var pos = 0
+  var len = s.length
+  var result = ''
+  var step1 = 0
+  var step2 = 0
   if (numRows === 1) {
-    return s;
+    return s
   }
-  for(var i = 0; i < numRows; i++) {
-    step1 = (numRows - i - 1) * 2;
-    step2 = i * 2;
-    pos = i;
+  for (var i = 0; i < numRows; i++) {
+    step1 = (numRows - i - 1) * 2
+    step2 = i * 2
+    pos = i
     if (pos < len) {
-      result = result + s[pos];
+      result = result + s[pos]
     }
     while (true) {
-      pos += step1;
+      pos += step1
       if (pos >= len) {
-        break;
+        break
       }
       if (step1) {
-        result = result + s[pos];
+        result = result + s[pos]
       }
-      pos += step2;
+      pos += step2
       if (pos >= len) {
-        break;
+        break
       }
       if (step2) {
-        result = result + s[pos];
+        result = result + s[pos]
       }
     }
   }
-  return result;
+  return result
 };

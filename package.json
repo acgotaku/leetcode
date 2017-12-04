@@ -1,0 +1,42 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "leetcode javascript version",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint algorithms",
+    "test:unit": "jasmine JASMINE_CONFIG_PATH=algorithms/javascript/jasmine-unit.json",
+    "karma": "karma start",
+    "test": "npm run lint && npm run test:unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acgotaku/leetcode.git"
+  },
+  "keywords": [
+    "leetcode"
+  ],
+  "author": "acgotaku311",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/acgotaku/leetcode/issues"
+  },
+  "homepage": "https://github.com/acgotaku/leetcode#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "eslint": "^4.12.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jasmine": "^2.8.0",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-jasmine": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^2.0.6",
+    "webpack": "^3.9.1"
+  }
+}
