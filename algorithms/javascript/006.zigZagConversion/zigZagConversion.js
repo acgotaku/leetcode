@@ -31,15 +31,15 @@
 **********************************************************************************/
 
 export default function convert (s, numRows) {
-  var pos = 0
-  var len = s.length
-  var result = ''
-  var step1 = 0
-  var step2 = 0
+  let pos = 0
+  const len = s.length
+  let result = ''
+  let step1 = 0
+  let step2 = 0
   if (numRows === 1) {
     return s
   }
-  for (var i = 0; i < numRows; i++) {
+  for (let i = 0; i < numRows; i++) {
     step1 = (numRows - i - 1) * 2
     step2 = i * 2
     pos = i
