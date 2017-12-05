@@ -1,10 +1,10 @@
-import convert from './zigZagConversion'
+import { convert } from './zigZagConversion'
 
 describe('zigZagConversion', function () {
   it('convert', function () {
-    var s = 'PAYPALISHIRING'
-    var numRows = '3'
-    var result = 'PAHNAPLSIIGYIR'
+    const s = 'PAYPALISHIRING'
+    const numRows = '3'
+    const result = 'PAHNAPLSIIGYIR'
     expect(convert(s, numRows)).toBe(result)
   })
 })

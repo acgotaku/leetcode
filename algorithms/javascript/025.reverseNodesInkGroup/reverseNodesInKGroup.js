@@ -21,20 +21,18 @@
 *
 *
 **********************************************************************************/
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
+
+function ListNode (val) {
+  this.val = val
+  this.next = null
+}
 /**
  * @param {ListNode} head
  * @param {number} k
  * @return {ListNode}
  */
-var reverseList = function (head, k) {
-  var pEnd = head
+const reverseList = function (head, k) {
+  let pEnd = head
   while (pEnd && k > 0) {
     pEnd = pEnd.next
     k--
@@ -43,28 +41,30 @@ var reverseList = function (head, k) {
     return head
   }
 
-  var pHead = pEnd
-  var p = head
+  let pHead = pEnd
+  let p = head
   while (p !== pEnd) {
-    var q = p.next
+    let q = p.next
     p.next = pHead
     pHead = p
     p = q
   }
   return pHead
 }
-var reverseKGroup = function (head, k) {
+const reverseKGroup = function (head, k) {
   if (k <= 0) {
     return head
   }
-  var pHead = new ListNode()
+  let pHead = new ListNode()
   pHead.next = head
-  var p = pHead
+  let p = pHead
   while (p) {
     p.next = reverseList(p.next, k)
-    for (var i = 0; p && i < k; i++) {
+    for (let i = 0; p && i < k; i++) {
       p = p.next
     }
   }
   return pHead.next
 }
+
+export { ListNode, reverseKGroup }

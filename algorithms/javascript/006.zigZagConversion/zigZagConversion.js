@@ -30,7 +30,7 @@
 
 **********************************************************************************/
 
-export default function convert (s, numRows) {
+const convert = (s, numRows) => {
   let pos = 0
   const len = s.length
   let result = ''
@@ -64,4 +64,6 @@ export default function convert (s, numRows) {
     }
   }
   return result
-};
+}
+
+export { convert }
