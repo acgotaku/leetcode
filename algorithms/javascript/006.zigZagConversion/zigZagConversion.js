@@ -1,4 +1,4 @@
-// Source : https://leetcode.com/problems/zigzag-conversion/#/description
+// Source : https://leetcode.com/problems/zigzag-conversion/description
 // Author : acgotaku311
 // Date   : 2017-07-15
 

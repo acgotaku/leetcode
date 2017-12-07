@@ -1,4 +1,4 @@
-// Source : https://leetcode.com/problems/reverse-nodes-in-k-group/#/description
+// Source : https://leetcode.com/problems/reverse-nodes-in-k-group/description
 // Author : acgotaku311
 // Date   : 2017-07-15
 

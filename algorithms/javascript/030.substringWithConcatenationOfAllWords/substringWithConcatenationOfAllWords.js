@@ -1,4 +1,4 @@
-// Source : https://leetcode.com/problems/substring-with-concatenation-of-all-words/#/description
+// Source : https://leetcode.com/problems/substring-with-concatenation-of-all-words/description
 // Author : acgotaku311
 // Date   : 2017-07-24
 
