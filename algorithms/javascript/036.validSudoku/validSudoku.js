@@ -22,28 +22,37 @@
  * @return {boolean}
  */
 const isValidSudoku = (board) => {
-  const len = 9
-  const checkRepeat = (array) => {
-    const validArray = array.filter((item) => item)
-    if ([...new Set(validArray)].length < validArray.length) {
-      return true
-    } else {
-      return false
-    }
+  const len = board.length
+  const rowMask = new Array(len)
+  const colMask = new Array(len)
+  const blockMask = new Array(len)
+  for (let i = 0; i < len; i++) {
+    rowMask[i] = [false, false, false, false, false, false, false, false, false]
+    colMask[i] = [false, false, false, false, false, false, false, false, false]
+    blockMask[i] = [false, false, false, false, false, false, false, false, false]
   }
   for (let i = 0; i < len; i++) {
-    let row = []
-    let col = []
-    let block = []
-    const baseX = parseInt(i / 3) * 3
-    const baseY = parseInt(i % 3) * 3
     for (let j = 0; j < len; j++) {
-      row[j] = parseInt(board[i][j])
-      col[j] = parseInt(board[j][i])
-      block[j] = parseInt(board[baseX + parseInt(j / 3)][baseY + j % 3])
-    }
-    if (checkRepeat(col) || checkRepeat(row) || checkRepeat(block)) {
-      return false
+      if (isNaN(board[i][j])) {
+        continue
+      }
+      const idx = parseInt(board[i][j]) - 1
+
+      if (rowMask[i][idx] === true) {
+        return false
+      }
+      rowMask[i][idx] = true
+
+      if (colMask[j][idx] === true) {
+        return false
+      }
+      colMask[j][idx] = true
+
+      const block = parseInt(i / 3) * 3 + parseInt(j / 3)
+      if (blockMask[block][idx] === true) {
+        return false
+      }
+      blockMask[block][idx] = true
     }
   }
   return true
