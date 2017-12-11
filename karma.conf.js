@@ -6,12 +6,13 @@ module.exports = function (config) {
     ],
     frameworks: ['jasmine'],
     preprocessors: {
-      'index.js': ['webpack']
+      'index.js': ['webpack', 'sourcemap']
     },
     plugins: [
       'karma-phantomjs-launcher',
       'karma-jasmine',
-      'karma-webpack'
+      'karma-webpack',
+      'karma-sourcemap-loader'
     ],
     webpack: {
       module: {
@@ -27,7 +28,8 @@ module.exports = function (config) {
           }
         ]
       },
-      watch: true
+      watch: true,
+      devtool: '#inline-source-map'
     }
   })
 }
