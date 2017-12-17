@@ -40,6 +40,5 @@ const permuteUnique = (nums) => {
   loop(nums, [])
   return result
 }
-console.log('test')
 
 export { permuteUnique }
