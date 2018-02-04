@@ -15,7 +15,7 @@ describe('rotate', function () {
     rotate(matrix)
     expect(matrix).toEqual(result)
   })
-  it('rotate test case 1', function () {
+  it('rotate test case 2', function () {
     const matrix = [
       [5, 1, 9, 11],
       [2, 4, 8, 10],
