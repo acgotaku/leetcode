@@ -74,6 +74,7 @@ const nextPermutation = (nums) => {
         j--
       }
       [nums[j], nums[i - 1]] = [nums[i - 1], nums[j]]
+      // sort
       for (let m = i; m < len - 1; m++) {
         for (let n = i; n < len - 1 - m + i; n++) {
           if (nums[n] > nums[n + 1]) {
@@ -83,6 +84,7 @@ const nextPermutation = (nums) => {
       }
       return
     }
+    // back to first
     if (i === 1) {
       nums.reverse()
     }
