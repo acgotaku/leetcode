@@ -9,21 +9,9 @@
 const solveLightsOut = (board) => {
   const row = board.length
   const col = board[0].length
-  let count = -1
-
-  const getStateVal = (board) => {
-    let val = 0
-    for (let i = row - 1; i >= 0; i--) {
-      for (let j = col - 1; j >= 0; j--) {
-        val = val << 1
-        val = val | board[i][j]
-      }
-    }
-    return val
-  }
-
-  const getNextStateVal = (curState, i, j) => {
-    let nextState = curState
+  const gaussian = (board, row, col) => {
+    const stateList = []
+    const maxCount = row * col
     const near = [
       [0, 0],
       [-1, 0],
@@ -32,41 +20,63 @@ const solveLightsOut = (board) => {
       [0, 1]
     ]
 
-    near.forEach((point) => {
-      let [offsetX, offsetY] = point
-      let [x, y] = [i + offsetX, j + offsetY]
-      if (x >= 0 && x < row && y >= 0 && y < col) {
-        const index = x * col + y
-        nextState = nextState ^ (1 << index)
-      }
-    })
-    return nextState
-  }
-  const startState = getStateVal(board)
-  const queue = [startState]
-  const visited = {}
-  visited[startState] = true
-  while (queue.length > 0) {
-    count += 1
-    const len = queue.length
-    for (let i = 0; i < len; i++) {
-      const state = queue.shift()
-      if (state === 0) {
-        return count
-      } else {
-        for (let i = 0; i < row; i++) {
-          for (let j = 0; j < col; j++) {
-            const newState = getNextStateVal(state, i, j)
-            if (!visited[newState]) {
-              queue.push(newState)
-              visited[newState] = true
-            }
+    const arrayXOR = (arr1, arr2) => {
+      const result = [...new Set(arr1.concat(arr2))]
+      return result.map((value) => {
+        if (!(arr1.includes(value) && arr2.includes(value))) {
+          return value
+        }
+      }).filter(n => n !== undefined)
+    }
+    for (let i = 0; i < row; i++) {
+      for (let j = 0; j < col; j++) {
+        const state = []
+        near.forEach((point) => {
+          let [offsetX, offsetY] = point
+          let [x, y] = [i + offsetX, j + offsetY]
+          if (x >= 0 && x < row && y >= 0 && y < col) {
+            state.push(x * col + y)
           }
+        })
+        stateList.push([board[i][j], state])
+      }
+    }
+    for (let i = 0; i < maxCount; i++) {
+      let flag = true
+      for (let j = i; j < maxCount; j++) {
+        if (stateList[j][1].includes(i)) {
+          [ stateList[i], stateList[j] ] = [ stateList[j], stateList[i] ]
+          flag = false
+          break
+        }
+      }
+      if (flag) {
+        return -1
+      }
+
+      for (let j = i + 1; j < maxCount; j++) {
+        if (stateList[j][1].includes(i)) {
+          stateList[j][0] = stateList[j][0] ^ stateList[i][0]
+          stateList[j][1] = arrayXOR(stateList[j][1], stateList[i][1])
         }
       }
     }
+
+    for (let i = maxCount - 1; i >= 0; i--) {
+      for (let j = 0; j < i; j++) {
+        if (stateList[j][1].includes(i)) {
+          stateList[j][0] = stateList[j][0] ^ stateList[i][0]
+          stateList[j][1] = arrayXOR(stateList[j][1], stateList[i][1])
+        }
+      }
+    }
+    let step = 0
+    stateList.forEach((item) => {
+      step = step + item[0]
+    })
+    return step
   }
-  return -1
+  return gaussian(board, row, col)
 }
 
 export { solveLightsOut }
