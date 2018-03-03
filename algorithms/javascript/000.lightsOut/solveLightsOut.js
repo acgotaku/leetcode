@@ -28,6 +28,7 @@ const solveLightsOut = (board) => {
         }
       }).filter(n => n !== undefined)
     }
+    // 保存每个灯的状态
     for (let i = 0; i < row; i++) {
       for (let j = 0; j < col; j++) {
         const state = []
@@ -41,6 +42,8 @@ const solveLightsOut = (board) => {
         stateList.push([board[i][j], state])
       }
     }
+
+    // 保证对角线上是1 解方程组构成上三角
     for (let i = 0; i < maxCount; i++) {
       let flag = true
       for (let j = i; j < maxCount; j++) {
@@ -62,6 +65,7 @@ const solveLightsOut = (board) => {
       }
     }
 
+    // 逆向解上三角 只有对角线有1
     for (let i = maxCount - 1; i >= 0; i--) {
       for (let j = 0; j < i; j++) {
         if (stateList[j][1].includes(i)) {
