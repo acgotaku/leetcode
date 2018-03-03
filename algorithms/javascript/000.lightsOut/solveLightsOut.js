@@ -9,73 +9,64 @@
 const solveLightsOut = (board) => {
   const row = board.length
   const col = board[0].length
-  let count = 0
-  let maxCount = row * col
-  const visited = {}
-  const queue = [board, []]
+  let count = -1
 
   const getStateVal = (board) => {
     let val = 0
-    let base = 1
-    for (let i = 0; i < row; i++) {
-      for (let j = 0; j < col; j++) {
-        val += base * board[i][j]
-        base = base * 2
+    for (let i = row - 1; i >= 0; i--) {
+      for (let j = col - 1; j >= 0; j--) {
+        val = val << 1
+        val = val | board[i][j]
       }
     }
     return val
   }
-  const toggle = (value) => {
-    return value === 0 ? 1 : 0
-  }
-  const toggleNear = (board, i, j) => {
-    const newBoard = board.map(item => item.slice())
-    // self
-    newBoard[i][j] = toggle(newBoard[i][j])
-    // top
-    if (i - 1 >= 0) {
-      newBoard[i - 1][j] = toggle(newBoard[i - 1][j])
-    }
-    // right
-    if (j + 1 < col) {
-      newBoard[i][j + 1] = toggle(newBoard[i][j + 1])
-    }
-    // bottom
-    if (i + 1 < row) {
-      newBoard[i + 1][j] = toggle(newBoard[i + 1][j])
-    }
-    // left
-    if (j - 1 >= 0) {
-      newBoard[i][j - 1] = toggle(newBoard[i][j - 1])
-    }
-    return newBoard
-  }
 
+  const getNextStateVal = (curState, i, j) => {
+    let nextState = curState
+    const near = [
+      [0, 0],
+      [-1, 0],
+      [1, 0],
+      [0, -1],
+      [0, 1]
+    ]
+
+    near.forEach((point) => {
+      let [offsetX, offsetY] = point
+      let [x, y] = [i + offsetX, j + offsetY]
+      if (x >= 0 && x < row && y >= 0 && y < col) {
+        const index = x * col + y
+        nextState = nextState ^ (1 << index)
+      }
+    })
+    return nextState
+  }
+  const startState = getStateVal(board)
+  const queue = [startState]
+  const visited = {}
+  visited[startState] = true
   while (queue.length > 0) {
-    const state = queue.shift()
-    if (count > maxCount) {
-      return -1
-    }
-    if (state.length === 0) {
-      count++
-      queue.push(state)
-    } else {
-      const val = getStateVal(state)
-      if (val === 0) {
+    count += 1
+    const len = queue.length
+    for (let i = 0; i < len; i++) {
+      const state = queue.shift()
+      if (state === 0) {
         return count
       } else {
-        if (!visited[val]) {
-          visited[val] = true
-          for (let i = 0; i < row; i++) {
-            for (let j = 0; j < col; j++) {
-              const newState = toggleNear(state, i, j)
+        for (let i = 0; i < row; i++) {
+          for (let j = 0; j < col; j++) {
+            const newState = getNextStateVal(state, i, j)
+            if (!visited[newState]) {
               queue.push(newState)
+              visited[newState] = true
             }
           }
         }
       }
     }
   }
+  return -1
 }
 
 export { solveLightsOut }
