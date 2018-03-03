@@ -6,6 +6,8 @@
  * @param {character[][]} board
  * @return {number}
  */
+
+// gaussian elimination solution
 const solveLightsOut = (board) => {
   const row = board.length
   const col = board[0].length
