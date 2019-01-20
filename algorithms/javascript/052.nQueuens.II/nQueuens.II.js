@@ -21,7 +21,7 @@ const totalNQueens = (n) => {
     return result
   }
 
-  const check = (prev, {x, y}) => {
+  const check = (prev, { x, y }) => {
     for (let i = 0; i < prev.length; i++) {
       if (prev[i].y === y || Math.abs(prev[i].x - x) === Math.abs(prev[i].y - y)) {
         return false
@@ -38,7 +38,7 @@ const totalNQueens = (n) => {
       const row = point.x + 1
       if (row < n) {
         for (let i = 0; i < n; i++) {
-          solveQueen(prev, {x: row, y: i})
+          solveQueen(prev, { x: row, y: i })
         }
       }
       prev.pop()
@@ -46,7 +46,7 @@ const totalNQueens = (n) => {
   }
 
   for (let i = 0; i < n; i++) {
-    solveQueen([], {x: 0, y: i})
+    solveQueen([], { x: 0, y: i })
   }
 
   return result

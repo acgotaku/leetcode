@@ -22,13 +22,14 @@ module.exports = function (config) {
             use: {
               loader: 'babel-loader',
               options: {
-                presets: ['env']
+                presets: ['@babel/preset-env']
               }
             }
           }
         ]
       },
       watch: true,
+      mode: 'development',
       devtool: '#inline-source-map'
     }
   })

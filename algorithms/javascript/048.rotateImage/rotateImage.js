@@ -32,7 +32,7 @@ const rotate = (matrix) => {
   const map = (a, b) => {
     const x = b
     const y = len - a - 1
-    return {x, y}
+    return { x, y }
   }
   for (let i = 0; i < Math.ceil(len / 2); i++) {
     const low = i
@@ -42,7 +42,7 @@ const rotate = (matrix) => {
       let b = j
       let prev = matrix[a][b]
       for (let j = 0; j < 4; j++) {
-        let {x, y} = map(a, b)
+        let { x, y } = map(a, b)
         const temp = matrix[x][y]
         matrix[x][y] = prev
         prev = temp
