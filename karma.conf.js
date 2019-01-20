@@ -1,6 +1,14 @@
+process.env.CHROME_BIN = require('puppeteer').executablePath()
+
 module.exports = function (config) {
   config.set({
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
     files: [
       { pattern: 'index.js' }
     ],
@@ -9,7 +17,7 @@ module.exports = function (config) {
       'index.js': ['webpack', 'sourcemap']
     },
     plugins: [
-      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-jasmine',
       'karma-webpack',
       'karma-sourcemap-loader'
