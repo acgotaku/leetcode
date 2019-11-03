@@ -1,4 +1,4 @@
-# leetcode
+# leetcode [![GitHub Actions status](https://github.com/acgotaku/leetcode/workflows/unit-test/badge.svg)](https://github.com/acgotaku/leetcode)
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
