@@ -43,7 +43,7 @@ const getPermutation = function (n, k) {
   }
   k--
   for (let i = n; i > 0; i--) {
-    let j = Number.parseInt(k / factorial[i - 1])
+    const j = Number.parseInt(k / factorial[i - 1])
     k = k % factorial[i - 1]
     result.push(nums[j])
     nums.splice(j, 1)

@@ -35,8 +35,8 @@ const solveLightsOut = (board) => {
       for (let j = 0; j < col; j++) {
         const state = []
         near.forEach((point) => {
-          let [offsetX, offsetY] = point
-          let [x, y] = [i + offsetX, j + offsetY]
+          const [offsetX, offsetY] = point
+          const [x, y] = [i + offsetX, j + offsetY]
           if (x >= 0 && x < row && y >= 0 && y < col) {
             state.push(x * col + y)
           }
@@ -50,7 +50,7 @@ const solveLightsOut = (board) => {
       let flag = true
       for (let j = i; j < maxCount; j++) {
         if (stateList[j][1].includes(i)) {
-          [ stateList[i], stateList[j] ] = [ stateList[j], stateList[i] ]
+          [stateList[i], stateList[j]] = [stateList[j], stateList[i]]
           flag = false
           break
         }

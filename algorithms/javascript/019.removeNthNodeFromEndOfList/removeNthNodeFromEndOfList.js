@@ -33,7 +33,7 @@ const removeNthFromEnd = function (head, n) {
   if (head === null || n < 0) {
     return null
   }
-  let fakeHead = new ListNode(-1)
+  const fakeHead = new ListNode(-1)
   fakeHead.next = head
   head = fakeHead
   let p1 = new ListNode(-1)

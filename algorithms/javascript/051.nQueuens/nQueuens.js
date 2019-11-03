@@ -40,7 +40,7 @@ const solveNQueens = (n) => {
     return result
   }
   const buildArray = () => {
-    let item = []
+    const item = []
     for (let i = 0; i < n; i++) {
       item.push(new Array(n).fill('.'))
     }

@@ -15,7 +15,7 @@
  * @return {number}
  */
 const lengthOfLongestSubstring = (s) => {
-  let map = Object.create(null)
+  const map = Object.create(null)
   const len = s.length
   let max = 0
   let lastRepeater = -1

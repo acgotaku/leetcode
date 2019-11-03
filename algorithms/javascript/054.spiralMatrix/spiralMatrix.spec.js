@@ -3,9 +3,9 @@ import { spiralOrder } from './spiralMatrix'
 describe('spiralOrder', function () {
   it('spiralOrder test case 1', function () {
     const matrix = [
-      [ 1, 2, 3 ],
-      [ 4, 5, 6 ],
-      [ 7, 8, 9 ]
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
     ]
     const result = [1, 2, 3, 6, 9, 8, 7, 4, 5]
     expect(spiralOrder(matrix)).toEqual(result)

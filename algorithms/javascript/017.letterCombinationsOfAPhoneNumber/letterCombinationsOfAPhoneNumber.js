@@ -36,8 +36,8 @@ const letterCombinations = (digits) => {
   ]
 
   const len = digits.length
-  let result = []
-  let stack = []
+  const result = []
+  const stack = []
   if (len === 0) {
     return result
   }

@@ -44,7 +44,7 @@ const reverseList = function (head, k) {
   let pHead = pEnd
   let p = head
   while (p !== pEnd) {
-    let q = p.next
+    const q = p.next
     p.next = pHead
     pHead = p
     p = q
@@ -55,7 +55,7 @@ const reverseKGroup = function (head, k) {
   if (k <= 0) {
     return head
   }
-  let pHead = new ListNode()
+  const pHead = new ListNode()
   pHead.next = head
   let p = pHead
   while (p) {

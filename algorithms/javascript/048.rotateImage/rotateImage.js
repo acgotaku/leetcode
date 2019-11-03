@@ -42,7 +42,7 @@ const rotate = (matrix) => {
       let b = j
       let prev = matrix[a][b]
       for (let j = 0; j < 4; j++) {
-        let { x, y } = map(a, b)
+        const { x, y } = map(a, b)
         const temp = matrix[x][y]
         matrix[x][y] = prev
         prev = temp

@@ -31,7 +31,7 @@ const threeSum = function (nums) {
   })
 
   const len = nums.length
-  let result = []
+  const result = []
   for (let i = 0; i <= len - 3; i++) {
     if (i > 0 && nums[i] === nums[i - 1]) {
       continue

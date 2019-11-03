@@ -30,7 +30,7 @@
 
 const threeSum = function (nums, target) {
   const len = nums.length
-  let result = []
+  const result = []
   for (let i = 0; i <= len - 3; i++) {
     if (i > 0 && nums[i] === nums[i - 1]) {
       continue
@@ -72,7 +72,7 @@ const fourSum = (nums, target) => {
   nums.sort((a, b) => {
     return a - b
   })
-  let result = []
+  const result = []
   const len = nums.length
   if (len < 4) {
     return result

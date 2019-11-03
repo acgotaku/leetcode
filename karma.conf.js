@@ -9,9 +9,8 @@ module.exports = function (config) {
         flags: ['--no-sandbox']
       }
     },
-    files: [
-      { pattern: 'index.js' }
-    ],
+    singleRun: true,
+    files: [{ pattern: 'index.js' }],
     frameworks: ['jasmine'],
     preprocessors: {
       'index.js': ['webpack', 'sourcemap']
@@ -25,7 +24,8 @@ module.exports = function (config) {
     webpack: {
       module: {
         rules: [
-          { test: /\.js$/,
+          {
+            test: /\.js$/,
             exclude: /node_modules/,
             use: {
               loader: 'babel-loader',

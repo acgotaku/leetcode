@@ -25,7 +25,7 @@ function ListNode (val) {
  */
 const addTwoNumbers = function (l1, l2) {
   let l = new ListNode(0)
-  let head = l
+  const head = l
   let carry = 0
   while (l1 || l2 || carry !== 0) {
     let sum = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + carry
