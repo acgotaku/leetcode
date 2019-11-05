@@ -7,16 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js 10.x
+    - name: "Use Node.js 10.x"
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
-    - name: Install dependencies
+    - name: "Install dependencies"
       run: yarn install
-    - name: Start unit test
+    - name: "Start unit test"
       run: yarn test
 
-    - name: Upload coverage to Codecov  
+    - name: "Upload coverage to Codecov"
       uses: codecov/codecov-action@v1.0.3
       with:
         token: ${{secrets.CODECOV_TOKEN}}
