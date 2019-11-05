@@ -15,8 +15,16 @@ module.exports = function (config) {
     preprocessors: {
       'index.js': ['webpack', 'sourcemap']
     },
+    reporters: ['progress', 'coverage'],
+    coverageReporter: {
+      reporters: [
+        { type: 'lcov', subdir: '.' },
+        { type: 'text-summary', subdir: '.' }
+      ]
+    },
     plugins: [
       'karma-chrome-launcher',
+      'karma-coverage',
       'karma-jasmine',
       'karma-webpack',
       'karma-sourcemap-loader'
@@ -30,7 +38,8 @@ module.exports = function (config) {
             use: {
               loader: 'babel-loader',
               options: {
-                presets: ['@babel/preset-env']
+                presets: ['@babel/preset-env'],
+                plugins: ['istanbul']
               }
             }
           }
