@@ -42,7 +42,7 @@ module.exports = function (config) {
                 plugins: [['istanbul', {
                   exclude: [
                     'index.js',
-                    'algorithms/**/*.spec..js'
+                    'algorithms/**/*.spec.js'
                   ]
                 }]]
               }
