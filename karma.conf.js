@@ -39,12 +39,12 @@ module.exports = function (config) {
               loader: 'babel-loader',
               options: {
                 presets: ['@babel/preset-env'],
-                plugins: ['istanbul', {
+                plugins: [['istanbul', {
                   exclude: [
                     'index.js',
-                    'algorithms/**/*.spce.js'
+                    'algorithms/**/*.spec..js'
                   ]
-                }]
+                }]]
               }
             }
           }
