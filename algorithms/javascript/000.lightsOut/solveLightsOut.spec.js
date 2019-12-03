@@ -28,4 +28,12 @@ describe('solveLightsOut', function () {
     ]
     expect(solveLightsOut(board)).toEqual(4)
   })
+
+  it('solveLightsOut test case 4', function () {
+    const board = [
+      [1, 0, 0],
+      [0, 0, 0]
+    ]
+    expect(solveLightsOut(board)).toEqual(-1)
+  })
 })
