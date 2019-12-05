@@ -11,4 +11,9 @@ describe('findMedianSortedArrays', function () {
     const nums2 = [3, 4]
     expect(findMedianSortedArrays(nums1, nums2)).toEqual(2.5)
   })
+  it('findMedianSortedArrays test case 3', function () {
+    const nums1 = [5, 6, 7, 8]
+    const nums2 = [1, 2, 3]
+    expect(findMedianSortedArrays(nums1, nums2)).toEqual(5)
+  })
 })
