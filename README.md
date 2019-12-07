@@ -9,3 +9,5 @@
 |4|[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)| [JavaScript](./algorithms/javascript/004.medianOfTwoSortedArrays/medianOfTwoSortedArrays.js)|Hard|
 |5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)| [JavaScript](./algorithms/javascript/005.longestPalindromicSubstring/longestPalindromicSubstring.js)|Medium|
 |6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/description)| [JavaScript](./algorithms/javascript/006.zigZagConversion/zigZagConversion.js)|Medium|
+|7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/description/)| [JavaScript](./algorithms/javascript/007.reverseInteger/reverseInteger.js)|Easy|
+|8|[String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/description/)| [JavaScript](./algorithms/javascript/008.stringToIntegerAtoi/stringToIntegerAtoi.js)|Medium|

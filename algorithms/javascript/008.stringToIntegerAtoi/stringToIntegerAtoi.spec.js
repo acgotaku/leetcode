@@ -25,4 +25,12 @@ describe('myAtoi', function () {
     const s = '-2147483648'
     expect(myAtoi(s)).toEqual(-2147483648)
   })
+  it('myAtoi test case 7', function () {
+    const s = '-12345678987654321'
+    expect(myAtoi(s)).toEqual(-2147483648)
+  })
+  it('myAtoi test case 8', function () {
+    const s = '12345678987654321'
+    expect(myAtoi(s)).toEqual(2147483647)
+  })
 })
