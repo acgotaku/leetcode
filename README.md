@@ -11,3 +11,5 @@
 |6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/description)| [JavaScript](./algorithms/javascript/006.zigZagConversion/zigZagConversion.js)|Medium|
 |7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/description/)| [JavaScript](./algorithms/javascript/007.reverseInteger/reverseInteger.js)|Easy|
 |8|[String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/description/)| [JavaScript](./algorithms/javascript/008.stringToIntegerAtoi/stringToIntegerAtoi.js)|Medium|
+|9|[Palindrome Number](https://leetcode.com/problems/palindrome-number/description/)| [JavaScript](./algorithms/javascript/009.palindromeNumber/palindromeNumber.js)|Easy|
+|10|[Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)| [JavaScript](./algorithms/javascript/010.regularExpressionMatching/regularExpressionMatching.js)|Hard|

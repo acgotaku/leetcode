@@ -21,4 +21,9 @@ describe('isMatch', function () {
     const p = '.*'
     expect(isMatch(s, p)).toEqual(true)
   })
+  it('isMatch test case 5', function () {
+    const s = 'a'
+    const p = 'b'
+    expect(isMatch(s, p)).toEqual(false)
+  })
 })
