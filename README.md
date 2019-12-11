@@ -14,3 +14,5 @@
 |9|[Palindrome Number](https://leetcode.com/problems/palindrome-number/description/)| [JavaScript](./algorithms/javascript/009.palindromeNumber/palindromeNumber.js)|Easy|
 |10|[Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)| [JavaScript](./algorithms/javascript/010.regularExpressionMatching/regularExpressionMatching.js)|Hard|
 |11|[Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)| [JavaScript](./algorithms/javascript/011.containerWithMostWater/containerWithMostWater.js)|Medium|
+|12|[Integer to Roman](https://leetcode.com/problems/integer-to-roman/description/)| [JavaScript](./algorithms/javascript/012.integerToRoman/integerToRoman.js)|Medium|
+|13|[Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/)| [JavaScript](./algorithms/javascript/013.romanToInteger/romanToInteger.js)|Easy|
