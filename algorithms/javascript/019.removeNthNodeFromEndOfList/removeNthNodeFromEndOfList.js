@@ -41,9 +41,6 @@ const removeNthFromEnd = function (head, n) {
   p1.next = head
   p2.next = head
   for (let i = 0; i < n; i++) {
-    if (p2 === null) {
-      return null
-    }
     p2 = p2.next
   }
 
