@@ -56,8 +56,6 @@ const mergeKLists = function (lists) {
   }
   if (lists.length === 1) {
     return lists.pop()
-  } else {
-    return null
   }
 }
 

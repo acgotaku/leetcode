@@ -23,3 +23,6 @@
 |18|[4Sum](https://leetcode.com/problems/4sum/description/)| [JavaScript](./algorithms/javascript/018.4Sum/4Sum.js)|Medium|
 |19|[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)| [JavaScript](./algorithms/javascript/019.removeNthNodeFromEndOfList/removeNthNodeFromEndOfList.js)|Medium|
 |20|[Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)| [JavaScript](./algorithms/javascript/020.validParentheses/validParentheses.js)|Easy|
+|21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/)| [JavaScript](./algorithms/javascript/021.mergeTwoSortedList/mergeTwoSortedList.js)|Easy|
+|22|[Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)| [JavaScript](./algorithms/javascript/022.generateParentheses/generateParentheses.js)|Medium|
+|23|[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/description/)| [JavaScript](./algorithms/javascript/023.mergeKSortedLists/mergeKSortedLists.js)|Hard|

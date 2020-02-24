@@ -12,4 +12,10 @@ describe('mergeTwoLists', function () {
     const result = [1, 1, 2, 3, 4, 4].reduceRight(reducer, null)
     expect(mergeTwoLists(l1, l2)).toEqual(result)
   })
+  it('mergeTwoLists test case 2', function () {
+    const l1 = [].reduceRight(reducer, null)
+    const l2 = [1, 3, 4].reduceRight(reducer, null)
+    const result = [1, 3, 4].reduceRight(reducer, null)
+    expect(mergeTwoLists(l1, l2)).toEqual(result)
+  })
 })
