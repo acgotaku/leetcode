@@ -16,4 +16,9 @@ describe('reverseNodesInKGroup', function () {
     const result = [3, 2, 1, 4, 5].reduceRight(reducer, null)
     expect(reverseKGroup(head, 3)).toEqual(result)
   })
+  it('reverseNodesInKGroup test case 3', function () {
+    const head = [1, 2, 3, 4, 5].reduceRight(reducer, null)
+    const result = [1, 2, 3, 4, 5].reduceRight(reducer, null)
+    expect(reverseKGroup(head, 0)).toEqual(result)
+  })
 })
