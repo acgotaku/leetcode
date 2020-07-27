@@ -2,17 +2,11 @@
 // Author : acgotaku311
 // Date   : 2018-01-31
 
-/**********************************************************************************
+/** ********************************************************************************
 *
-* Given a sorted array, remove the duplicates in place such that each element appear
-* only once and return the new length.
+* Given an array and a value, remove all instances of that value in place and return the new length.
 *
-* Do not allocate extra space for another array, you must do this in place with constant memory.
-*
-* For example,
-* Given input array A = [1,1,2],
-*
-* Your function should return length = 2, and A is now [1,2].
+* The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 *
 *
 **********************************************************************************/
