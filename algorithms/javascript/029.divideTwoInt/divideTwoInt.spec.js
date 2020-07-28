@@ -12,4 +12,24 @@ describe('divide', function () {
     const divisor = 1
     expect(divide(dividend, divisor)).toEqual(0)
   })
+  it('divide test case 3', function () {
+    const dividend = 10
+    const divisor = -2
+    expect(divide(dividend, divisor)).toEqual(-5)
+  })
+  it('divide test case 4', function () {
+    const dividend = -10
+    const divisor = 2
+    expect(divide(dividend, divisor)).toEqual(-5)
+  })
+  it('divide test case 5', function () {
+    const dividend = 1099511627776
+    const divisor = 2
+    expect(divide(dividend, divisor)).toEqual(2147483647)
+  })
+  it('divide test case 6', function () {
+    const dividend = 1099511627776
+    const divisor = -2
+    expect(divide(dividend, divisor)).toEqual(-2147483648)
+  })
 })
