@@ -43,6 +43,6 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
     "puppeteer": "^5.2.1",
-    "webpack": "^4.44.0"
+    "webpack": "^4.44.1"
   }
 }
