@@ -31,4 +31,9 @@ describe('isMatch', function () {
     const p = 'ab*cd?i*de'
     expect(isMatch(s, p)).toEqual(true)
   })
+  it('isMatch test case 7', function () {
+    const s = 'ab'
+    const p = 'a?**'
+    expect(isMatch(s, p)).toEqual(true)
+  })
 })
