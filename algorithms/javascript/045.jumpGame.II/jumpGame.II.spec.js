@@ -21,4 +21,9 @@ describe('jumpGame.II', function () {
     const result = 2
     expect(jump(nums)).toEqual(result)
   })
+  it('jumpGame.II test case 5', function () {
+    const nums = []
+    const result = 0
+    expect(jump(nums)).toEqual(result)
+  })
 })
