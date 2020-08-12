@@ -22,4 +22,9 @@ describe('permutations', function () {
     ]
     expect(permuteUnique(nums).sort()).toEqual(result.sort())
   })
+  it('permutations test case 3', function () {
+    const nums = []
+    const result = []
+    expect(permuteUnique(nums).sort()).toEqual(result.sort())
+  })
 })
