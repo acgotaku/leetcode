@@ -13,4 +13,16 @@ describe('permutations', function () {
     ]
     expect(permute(nums).sort()).toEqual(result.sort())
   })
+  it('permutations test case 2', function () {
+    const nums = []
+    const result = []
+    expect(permute(nums).sort()).toEqual(result.sort())
+  })
+  it('permutations test case 3', function () {
+    const nums = [1]
+    const result = [
+      [1]
+    ]
+    expect(permute(nums).sort()).toEqual(result.sort())
+  })
 })
