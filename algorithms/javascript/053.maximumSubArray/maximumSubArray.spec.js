@@ -6,4 +6,9 @@ describe('maxSubArray', function () {
     const sum = 6
     expect(maxSubArray(nums)).toEqual(sum)
   })
+  it('maxSubArray test case 2', function () {
+    const nums = [-2]
+    const sum = -2
+    expect(maxSubArray(nums)).toEqual(sum)
+  })
 })
