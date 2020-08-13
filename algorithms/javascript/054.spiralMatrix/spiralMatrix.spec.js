@@ -10,13 +10,17 @@ describe('spiralOrder', function () {
     const result = [1, 2, 3, 6, 9, 8, 7, 4, 5]
     expect(spiralOrder(matrix)).toEqual(result)
   })
-
   it('spiralOrder test case 2', function () {
     const matrix = [
       [2, 5, 8],
       [4, 0, -1]
     ]
     const result = [2, 5, 8, -1, 0, 4]
+    expect(spiralOrder(matrix)).toEqual(result)
+  })
+  it('spiralOrder test case 3', function () {
+    const matrix = []
+    const result = []
     expect(spiralOrder(matrix)).toEqual(result)
   })
 })

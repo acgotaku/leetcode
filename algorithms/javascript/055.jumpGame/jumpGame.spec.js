@@ -10,4 +10,9 @@ describe('canJump', function () {
     const nums = [3, 2, 1, 0, 4]
     expect(canJump(nums)).toEqual(false)
   })
+
+  it('canJump test case 3', function () {
+    const nums = []
+    expect(canJump(nums)).toEqual(false)
+  })
 })
