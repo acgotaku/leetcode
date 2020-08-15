@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 process.env.CHROME_BIN = require('puppeteer').executablePath()
 
 module.exports = function (config) {
@@ -52,7 +54,14 @@ module.exports = function (config) {
       },
       watch: true,
       mode: 'development',
-      devtool: '#inline-source-map'
+      devtool: '#inline-source-map',
+      plugins: [
+        new webpack.DefinePlugin({
+          'process.env': {
+            TEST_PATH: config.path ? JSON.stringify(config.path) : JSON.stringify('./algorithms/javascript')
+          }
+        })
+      ]
     }
   })
 }

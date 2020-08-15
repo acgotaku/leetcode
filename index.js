@@ -1,2 +1,2 @@
-const context = require.context('./algorithms/javascript', true, /\.spec\.js$/)
+const context = require.context(process.env.TEST_PATH, true, /\.spec\.js$/)
 context.keys().forEach(context)
