@@ -57,39 +57,5 @@ const minPathSum = function (grid) {
   }
   return data[row - 1][col - 1]
 }
-// const uniquePathsWithObstacles = function (obstacleGrid) {
-//   const row = obstacleGrid.length
-//   const col = obstacleGrid[0].length
-//   const data = []
-//   for (let i = 0; i < row; i++) {
-//     const rowData = new Array(col).fill(0)
-//     data.push(rowData)
-//   }
-
-//   if (obstacleGrid[0][0] === 0) {
-//     data[0][0] = 1
-//   }
-
-//   for (let i = 1; i < row; i++) {
-//     if (obstacleGrid[i][0] === 0 && data[i - 1][0] !== 0) {
-//       data[i][0] = 1
-//     }
-//   }
-
-//   for (let j = 1; j < col; j++) {
-//     if (obstacleGrid[0][j] === 0 && data[0][j - 1] !== 0) {
-//       data[0][j] = 1
-//     }
-//   }
-
-//   for (let i = 1; i < row; i++) {
-//     for (let j = 1; j < col; j++) {
-//       if (obstacleGrid[i][j] === 0) {
-//         data[i][j] = data[i - 1][j] + data[i][j - 1]
-//       }
-//     }
-//   }
-//   return data[row - 1][col - 1]
-// }
 
 export { minPathSum }
