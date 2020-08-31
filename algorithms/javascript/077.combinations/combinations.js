@@ -27,24 +27,22 @@
  * @return {number[][]}
  */
 const combine = function (n, k) {
-  const stack = []
-  const array = []
-  const DFS = (array, combined, len) => {
-    if (len === 0) {
-      stack.push(combined)
+  const result = []
+  const DFS = (stack, start) => {
+    if (stack.length === k) {
+      result.push(stack.slice())
+      return
     }
 
-    for (let i = 0; i < array.length; i++) {
-      DFS(array.slice(i + 1), combined.concat(array[i]), len - 1)
+    for (let i = start; i <= n; i++) {
+      stack.push(i)
+      DFS(stack, i + 1)
+      stack.pop()
     }
   }
 
-  for (let i = 0; i < n; i++) {
-    array.push(i + 1)
-  }
-
-  DFS(array, [], k)
-  return stack
+  DFS([], 1)
+  return result
 }
 
 export { combine }
