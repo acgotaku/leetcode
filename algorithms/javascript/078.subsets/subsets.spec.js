@@ -13,7 +13,6 @@ describe('subsets', function () {
       [1, 2],
       []
     ]
-    console.log(subsets(nums))
     expect(subsets(nums).sort()).toEqual(result.sort())
   })
 })
