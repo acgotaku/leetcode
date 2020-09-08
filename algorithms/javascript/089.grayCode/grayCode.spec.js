@@ -1,4 +1,4 @@
-import { grayCode } from './grayCode'
+import { grayCode, grayCode2 } from './grayCode'
 
 describe('grayCode', function () {
   it('test case 1', function () {
@@ -14,6 +14,6 @@ describe('grayCode', function () {
   it('test case 3', function () {
     const n = 3
     const result = [0, 1, 3, 2, 6, 7, 5, 4]
-    expect(grayCode(n)).toEqual(result)
+    expect(grayCode2(n)).toEqual(result)
   })
 })
