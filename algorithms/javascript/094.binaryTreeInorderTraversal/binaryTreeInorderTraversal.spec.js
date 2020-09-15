@@ -2,21 +2,19 @@ import { TreeNode, inorderTraversal } from './binaryTreeInorderTraversal'
 
 describe('inorderTraversal', function () {
   const buildTree = (arr) => {
-    const nodes = arr.map(val => {
-      if (val) {
-        return new TreeNode(val)
-      } else {
-        return val
-      }
-    })
+    const nodes = arr.map(val => val ? new TreeNode(val) : null)
+    let i = 0
     let j = 1
-    for (let i = 0; j < arr.length; i++) {
+
+    while (i < arr.length && j < arr.length) {
       const node = nodes[i]
       if (node) {
         node.left = nodes[j++]
         node.right = nodes[j++] || null
       }
+      i++
     }
+
     return nodes[0]
   }
   it('test case 1', function () {
