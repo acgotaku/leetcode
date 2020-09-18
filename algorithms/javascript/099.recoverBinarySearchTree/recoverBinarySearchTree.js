@@ -1,16 +1,15 @@
-// Source : https://leetcode.com/problems/validate-binary-search-tree/
+// Source : https://leetcode.com/problems/recover-binary-search-tree/
 // Author : acgotaku311
 // Date   : 2020-09-18
 
 /** ********************************************************************************
 *
-* Given a binary tree, determine if it is a valid binary search tree (BST).
+* Two elements of a binary search tree (BST) are swapped by mistake.
 *
-* Assume a BST is defined as follows:
+* Recover the tree without changing its structure.
 *
-* The left subtree of a node contains only nodes with keys less than the node's key.
-* The right subtree of a node contains only nodes with keys greater than the node's key.
-* Both the left and right subtrees must also be binary search trees.
+* Note:
+* A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?
 *
 * confused what "{1,#,2,3}" means? > read more on how binary tree is serialized on OJ.
 *
@@ -49,23 +48,32 @@ function TreeNode (val, left, right) {
 }
 /**
  * @param {TreeNode} root
- * @return {boolean}
+ * @return {void} Do not return anything, modify root in-place instead.
  */
-const isValidBST = function (root) {
-  const stack = []
-  const inorder = (node) => {
+const recoverTree = function (root) {
+  let prev = null
+  let p = null
+  let q = null
+  const findMissing = (node) => {
     if (node) {
-      inorder(node.left)
-      stack.push(node.val)
-      inorder(node.right)
+      findMissing(node.left)
+      if (prev) {
+        if (prev.val > node.val) {
+          if (p === null) {
+            p = prev
+          }
+          q = node
+        }
+      }
+      prev = node
+      findMissing(node.right)
     }
   }
-  inorder(root)
-  for (let i = 1; i < stack.length; i++) {
-    if (stack[i - 1] >= stack[i]) {
-      return false
-    }
+
+  findMissing(root)
+  if (p && q) {
+    [p.val, q.val] = [q.val, p.val]
   }
-  return true
 }
-export { TreeNode, isValidBST }
+
+export { TreeNode, recoverTree }
