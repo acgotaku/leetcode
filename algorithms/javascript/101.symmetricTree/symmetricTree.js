@@ -89,4 +89,36 @@ const isSymmetric = function (root) {
   }
 }
 
-export { TreeNode, isSymmetric }
+const isSymmetric2 = function (root) {
+  const compare = (left, right) => {
+    const leftQueue = [left]
+    const rightQueue = [right]
+    while (leftQueue.length > 0 && rightQueue.length > 0) {
+      const l = leftQueue.shift()
+      const r = rightQueue.shift()
+      if (l === null && r === null) {
+        continue
+      }
+      if (l === null || r === null) {
+        return false
+      }
+      if (l.val === r.val) {
+        leftQueue.push(l.left)
+        rightQueue.push(r.right)
+
+        leftQueue.push(l.right)
+        rightQueue.push(r.left)
+      } else {
+        return false
+      }
+    }
+    return true
+  }
+  if (root) {
+    return compare(root.left, root.right)
+  } else {
+    return true
+  }
+}
+
+export { TreeNode, isSymmetric, isSymmetric2 }
