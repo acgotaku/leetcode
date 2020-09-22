@@ -30,7 +30,7 @@ function TreeNode (val, left, right) {
  * @return {boolean}
  */
 const isSameTree = function (p, q) {
-  const inorder = (a, b) => {
+  const compare = (a, b) => {
     if (a === null && b === null) {
       return true
     }
@@ -41,7 +41,7 @@ const isSameTree = function (p, q) {
       return false
     }
     if (a.val === b.val) {
-      if (inorder(a.left, b.left) && inorder(a.right, b.right)) {
+      if (compare(a.left, b.left) && compare(a.right, b.right)) {
         return true
       } else {
         return false
@@ -49,7 +49,7 @@ const isSameTree = function (p, q) {
     }
   }
 
-  return inorder(p, q)
+  return compare(p, q)
 }
 
 export { TreeNode, isSameTree }
