@@ -1,10 +1,10 @@
-// Source : https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+// Source : https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 // Author : acgotaku311
 // Date   : 2020-10-25
 
 /** ********************************************************************************
 *
-* Given preorder and inorder traversal of a tree, construct the binary tree.
+* Given inorder and postorder traversal of a tree, construct the binary tree.
 *
 * Note:
 * You may assume that duplicates do not exist in the tree.
@@ -26,28 +26,28 @@ function TreeNode (val, left, right) {
   this.right = (right === undefined ? null : right)
 }
 /**
- * @param {number[]} preorder
  * @param {number[]} inorder
+ * @param {number[]} postorder
  * @return {TreeNode}
  */
-const buildTree = function (preorder, inorder) {
+const buildTree = function (inorder, postorder) {
   const inPos = {}
   for (let i = 0; i < inorder.length; i++) {
     inPos[inorder[i]] = i
   }
 
-  const buildByPreIn = (preStart, preEnd, inStart) => {
-    if (preStart > preEnd) {
+  const buildByPreIn = (postStart, postEnd, inStart) => {
+    if (postStart > postEnd) {
       return null
     }
-    const root = new TreeNode(preorder[preStart])
-    const rootIndex = inPos[preorder[preStart]]
+    const root = new TreeNode(postorder[postEnd])
+    const rootIndex = inPos[postorder[postEnd]]
     const leftLen = rootIndex - inStart
-    root.left = buildByPreIn(preStart + 1, preStart + leftLen, inStart)
-    root.right = buildByPreIn(preStart + leftLen + 1, preEnd, rootIndex + 1)
+    root.left = buildByPreIn(postStart, postStart + leftLen - 1, inStart)
+    root.right = buildByPreIn(postStart + leftLen, postEnd - 1, rootIndex + 1)
     return root
   }
-  return buildByPreIn(0, preorder.length - 1, 0)
+  return buildByPreIn(0, postorder.length - 1, 0)
 }
 
 export { TreeNode, buildTree }
