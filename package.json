@@ -29,7 +29,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-istanbul": "^6.0.0",
     "babel-polyfill": "^6.26.0",
-    "eslint": "^7.12.1",
+    "eslint": "^7.13.0",
     "eslint-config-standard": "^15.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
