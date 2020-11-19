@@ -1,4 +1,4 @@
-// Source : https://leetcode.com/problems/path-with-minimum-effort/
+// Source : https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/
 // Author : acgotaku311
 // Date   : 2020-10-25
 
