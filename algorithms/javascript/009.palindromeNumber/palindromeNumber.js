@@ -28,7 +28,7 @@
 const isPalindrome = (x) => {
   const str = x.toString()
   const len = str.length
-  for (var i = 0; i < len / 2; i++) {
+  for (let i = 0; i < len / 2; i++) {
     if (str[i] !== str[len - i - 1]) {
       return false
     }

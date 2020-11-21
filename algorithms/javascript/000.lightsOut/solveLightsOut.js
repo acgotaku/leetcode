@@ -27,8 +27,10 @@ const solveLightsOut = (board) => {
       return result.map((value) => {
         if (!(arr1.includes(value) && arr2.includes(value))) {
           return value
+        } else {
+          return null
         }
-      }).filter(n => n !== undefined)
+      }).filter(n => n)
     }
     // 保存每个灯的状态
     for (let i = 0; i < row; i++) {

@@ -7,7 +7,7 @@
  * @param {string} keysPressed
  * @return {character}
  */
-var slowestKey = function (releaseTimes, keysPressed) {
+const slowestKey = function (releaseTimes, keysPressed) {
   const dict = {}
   let maxDuration = -1
   let maxKey = null

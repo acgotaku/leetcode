@@ -8,7 +8,7 @@
  * @param {number[]} r
  * @return {boolean[]}
  */
-var checkArithmeticSubarrays = function (nums, l, r) {
+const checkArithmeticSubarrays = function (nums, l, r) {
   const len = l.length
   const result = []
 
