@@ -26,9 +26,8 @@ function TreeNode (val, left, right) {
 }
 /**
  * @param {TreeNode} root
- * @return {boolean}
+ * @return {number}
  */
-
 const minDepth = function (root) {
   if (root === null) {
     return 0
