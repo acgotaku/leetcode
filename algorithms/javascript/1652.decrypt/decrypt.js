@@ -1,4 +1,4 @@
-// Source : https://leetcode.com/problems/ways-to-make-a-fair-array/
+// Source : https://leetcode.com/problems/defuse-the-bomb/
 // Author : acgotaku311
 // Date   : 2020-11-24
 
