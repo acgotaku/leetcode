@@ -30,4 +30,14 @@ describe('minDepth', function () {
     const result = 5
     expect(minDepth(tree)).toEqual(result)
   })
+  it('test case 3', function () {
+    const tree = buildTree([])
+    const result = 0
+    expect(minDepth(tree)).toEqual(result)
+  })
+  it('test case 4', function () {
+    const tree = buildTree([1, 2])
+    const result = 2
+    expect(minDepth(tree)).toEqual(result)
+  })
 })
