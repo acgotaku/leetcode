@@ -1,43 +1,31 @@
-// Source : https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+// Source : https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
 // Author : acgotaku311
 // Date   : 2020-11-28
 
 /** ********************************************************************************
 *
-* Given a binary tree
-*
-*     struct TreeLinkNode {
-*       TreeLinkNode *left;
-*       TreeLinkNode *right;
-*       TreeLinkNode *next;
-*     }
-*
-* Populate each next pointer to point to its next right node.
-* If there is no next right node, the next pointer should be set to NULL.
-*
-* Initially, all next pointers are set to NULL.
+* Follow up for problem "Populating Next Right Pointers in Each Node".
+* What if the given tree could be any binary tree? Would your previous solution still work?
 *
 * Note:
-*
 * You may only use constant extra space.
-* You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
 *
 * For example,
-* Given the following perfect binary tree,
+* Given the following binary tree,
 *
 *          1
 *        /  \
 *       2    3
-*      / \  / \
-*     4  5  6  7
+*      / \    \
+*     4   5    7
 *
 * After calling your function, the tree should look like:
 *
 *          1 -> NULL
 *        /  \
 *       2 -> 3 -> NULL
-*      / \  / \
-*     4->5->6->7 -> NULL
+*      / \    \
+*     4-> 5 -> 7 -> NULL
 *
 *
 **********************************************************************************/
@@ -64,14 +52,24 @@ function Node (val, left, right, next) {
  */
 const connect = function (root) {
   if (!root) return root
-  if (root.left && root.right) {
-    root.left.next = root.right
+  const queue = []
+  queue.push(root)
+  while (queue.length > 0) {
+    let len = queue.length
+    while (len > 0) {
+      const node = queue.shift()
+      if (len > 1) {
+        node.next = queue[0]
+      }
+      if (node.left) {
+        queue.push(node.left)
+      }
+      if (node.right) {
+        queue.push(node.right)
+      }
+      len--
+    }
   }
-  if (root.next && root.right) {
-    root.right.next = root.next.left
-  }
-  connect(root.left)
-  connect(root.right)
   return root
 }
 export { Node, connect }
