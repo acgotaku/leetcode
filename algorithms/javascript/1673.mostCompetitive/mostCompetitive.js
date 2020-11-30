@@ -9,22 +9,15 @@
  */
 const mostCompetitive = function (nums, k) {
   const len = nums.length
-  const MAX_INT = Math.pow(2, 31) - 1
-  let start = 0
-  const result = []
-  while (k > 0) {
-    let el = MAX_INT
-    let pos = start
-    for (let i = start; i <= (len - k); i++) {
-      if (nums[i] < el) {
-        el = nums[i]
-        pos = i
-      }
+  const stack = []
+  for (let i = 0; i < len; i++) {
+    while (stack.length > 0 && nums[i] < nums[stack[stack.length - 1]] && len - i + stack.length > k) {
+      stack.pop()
     }
-    start = pos + 1
-    result.push(el)
-    k--
+    if (stack.length < k) {
+      stack.push(i)
+    }
   }
-  return result
+  return stack.map(i => nums[i])
 }
 export { mostCompetitive }
