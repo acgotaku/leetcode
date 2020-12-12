@@ -8,18 +8,18 @@ describe('concatenatedBinary', function () {
 
     expect(concatenatedBinary(n)).toEqual(result)
   })
-  // it('test case 2', function () {
-  //   const n = 12
+  it('test case 2', function () {
+    const n = 12
 
-  //   const result = 505379714
+    const result = 505379714
 
-  //   expect(concatenatedBinary(n)).toEqual(result)
-  // })
-  // it('test case 3', function () {
-  //   const n = 42
+    expect(concatenatedBinary(n)).toEqual(result)
+  })
+  it('test case 3', function () {
+    const n = 42
 
-  //   const result = 727837408
+    const result = 727837408
 
-  //   expect(concatenatedBinary(n)).toEqual(result)
-  // })
+    expect(concatenatedBinary(n)).toEqual(result)
+  })
 })
