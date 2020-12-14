@@ -11,14 +11,14 @@ describe('minimumTotal', function () {
     const result = 11
     expect(minimumTotal(triangle)).toEqual(result)
   })
-  // it('test case 2', function () {
-  //   const triangle = [
-  //     [-1],
-  //     [2, 3],
-  //     [1, -1, -3]
+  it('test case 2', function () {
+    const triangle = [
+      [-1],
+      [2, 3],
+      [1, -1, -3]
 
-  //   ]
-  //   const result = -1
-  //   expect(minimumTotal(triangle)).toEqual(result)
-  // })
+    ]
+    const result = -1
+    expect(minimumTotal(triangle)).toEqual(result)
+  })
 })
