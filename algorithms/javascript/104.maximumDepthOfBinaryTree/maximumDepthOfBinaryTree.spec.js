@@ -2,7 +2,7 @@ import { TreeNode, maxDepth } from './maximumDepthOfBinaryTree'
 
 describe('maxDepth', function () {
   const buildTree = (arr) => {
-    const nodes = arr.map(val => val ? new TreeNode(val) : null)
+    const nodes = arr.map(val => val !== null ? new TreeNode(val) : null)
     let i = 0
     let j = 1
 
