@@ -62,6 +62,10 @@ const findLadders = function (beginWord, endWord, wordList) {
     const accessed = []
     for (let i = 0; i < len; i++) {
       const word = queue.shift()
+      if (word === endWord) {
+        findLevel = true
+        break
+      }
       for (let j = 0; j < word.length; j++) {
         const newWord = word.split('')
         for (let k = 0; k < alphabet.length; k++) {
@@ -79,10 +83,6 @@ const findLadders = function (beginWord, endWord, wordList) {
             }
             accessed.push(newStr)
             queue.push(newStr)
-          }
-          if (word === endWord) {
-            findLevel = true
-            break
           }
         }
       }
