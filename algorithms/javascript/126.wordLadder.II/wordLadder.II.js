@@ -72,14 +72,13 @@ const findLadders = function (beginWord, endWord, wordList) {
           }
           if (dictList[newStr]) {
             if (levels[word]) {
-              levels[word].push(newStr)
+              const temp = levels[word]
+              temp[newStr] = true
             } else {
-              levels[word] = [newStr]
+              levels[word] = { [newStr]: true }
             }
             accessed.push(newStr)
-            if (!queue.includes(newStr)) {
-              queue.push(newStr)
-            }
+            queue.push(newStr)
           }
           if (word === endWord) {
             findLevel = true
@@ -103,8 +102,8 @@ const findLadders = function (beginWord, endWord, wordList) {
     }
     const next = levels[lastWord]
     if (next) {
-      for (let i = 0; i < next.length; i++) {
-        list.push(next[i])
+      for (const key in next) {
+        list.push(key)
         DFS(list)
         list.pop()
       }
