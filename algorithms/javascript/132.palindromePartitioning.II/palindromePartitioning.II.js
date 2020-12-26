@@ -19,42 +19,35 @@
  * @return {number}
  */
 const minCut = function (s) {
-  let cut = 0
-  const queue = [s]
-  const isPalindrome = (str) => {
-    let start = 0
-    let end = str.length - 1
-    while (start < end) {
-      if (str[start] !== str[end]) {
-        return false
-      }
-      start++
-      end--
-    }
-    return true
+  const len = s.length
+  const dp = new Array(len).fill(0)
+  const table = []
+  for (let i = 0; i < len; i++) {
+    table.push(new Array(len).fill(false))
   }
 
-  while (queue.length > 0) {
-    const len = queue.length
-    for (let i = 0; i < len; i++) {
-      const str = queue.shift()
-      if (isPalindrome(str)) {
-        return cut
-      }
-      for (let j = 1; j < str.length; j++) {
-        const left = str.substr(0, j)
-        const right = str.substr(j)
-        if (isPalindrome(left)) {
-          if (isPalindrome(right)) {
-            return cut + 1
-          } else {
-            queue.push(right)
-          }
-        }
+  for (let i = len - 1; i >= 0; i--) {
+    for (let j = i; j < len; j++) {
+      if (s[i] === s[j] && (j - i < 2 || table[i + 1][j - 1])) {
+        table[i][j] = true
       }
     }
-    cut++
   }
+
+  for (let i = 0; i < len; i++) {
+    if (table[0][i]) {
+      dp[i] = 0
+    } else {
+      let size = len
+      for (let j = 0; j < i; j++) {
+        if (table[j + 1][i] && size > dp[j] + 1) {
+          size = dp[j] + 1
+        }
+      }
+      dp[i] = size
+    }
+  }
+  return dp[len - 1]
 }
 
 export { minCut }
