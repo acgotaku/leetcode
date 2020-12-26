@@ -34,29 +34,27 @@ const cloneGraph = function (node) {
   if (node === null) {
     return null
   }
-  const oldDict = {}
-  const newDict = {}
+  const dict = {}
+
   const queue = [node]
 
   while (queue.length > 0) {
-    const n = queue.shift()
-    const newNode = new Node(n.val)
-    newDict[newNode.val] = newNode
-    oldDict[n.val] = n
-    for (let i = 0; i < n.neighbors.length; i++) {
-      const near = n.neighbors[i]
-      if (!newDict[near.val]) {
+    const oldNode = queue.shift()
+    const newNode = dict[oldNode.val] || new Node(oldNode.val)
+    dict[newNode.val] = newNode
+
+    for (let i = 0; i < oldNode.neighbors.length; i++) {
+      const near = oldNode.neighbors[i]
+      if (!dict[near.val]) {
         queue.push(near)
+        const newNear = new Node(near.val)
+        dict[newNear.val] = newNear
       }
     }
-  }
-  for (const key in newDict) {
-    const newNode = newDict[key]
-    const oldNode = oldDict[key]
-    newNode.neighbors = oldNode.neighbors.map(item => newDict[item.val])
+    newNode.neighbors = oldNode.neighbors.map(near => dict[near.val])
   }
 
-  return newDict[node.val]
+  return dict[node.val]
 }
 
 export { Node, cloneGraph }
