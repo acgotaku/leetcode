@@ -46,5 +46,8 @@
     "prettier": "^2.2.1",
     "puppeteer": "^5.5.0",
     "webpack": "^4.44.2"
+  },
+  "dependencies": {
+    "@datastructures-js/priority-queue": "^4.1.2"
   }
 }

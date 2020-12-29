@@ -2,6 +2,7 @@
 // Author : acgotaku311
 // Date   : 2020-12-27
 
+import { MinPriorityQueue } from '@datastructures-js/priority-queue'
 /**
  * @param {number[]} apples
  * @param {number[]} days
@@ -9,23 +10,43 @@
  */
 const eatenApples = function (apples, days) {
   let apple = 0
-  let eat = 0
-  const len = apples.length
-  const maxDays = 50000
-  const count = new Array(maxDays).fill(0)
-  for (let i = 0; i < maxDays; i++) {
-    const temp = eat + count[i]
-    eat = Math.max(temp, 0)
-    count[i] = Math.min(temp, 0)
-    if (i < len) {
-      count[i] += apples[i]
-      count[i + days[i]] -= apples[i]
+  const trees = new MinPriorityQueue({ priority: (tree) => tree.expired })
+  for (let i = 0; i < apples.length; i++) {
+    const appleCount = apples[i]
+    const expired = i + days[i]
+    while (!trees.isEmpty() && trees.front().element.expired <= i) {
+      trees.dequeue()
     }
-    count[i] += i > 0 ? count[i - 1] : 0
-    if (count[i] > 0) {
-      apple++
-      eat++
-      count[i]--
+    if (appleCount > 0 && expired > i) {
+      trees.enqueue({
+        expired,
+        appleCount
+      })
+    }
+    if (!trees.isEmpty()) {
+      const tree = trees.front()
+      if (tree.element.appleCount > 1) {
+        tree.element.appleCount--
+        apple++
+      } else {
+        trees.dequeue()
+        apple++
+      }
+    }
+  }
+  for (let i = apples.length; trees.isEmpty() === false; i++) {
+    while (!trees.isEmpty() && trees.front().element.expired <= i) {
+      trees.dequeue()
+    }
+    if (!trees.isEmpty()) {
+      const tree = trees.front()
+      if (tree.element.appleCount > 1) {
+        tree.element.appleCount--
+        apple++
+      } else {
+        trees.dequeue()
+        apple++
+      }
     }
   }
 
