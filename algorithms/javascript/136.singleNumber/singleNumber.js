@@ -17,18 +17,10 @@
  * @return {number}
  */
 const singleNumber = function (nums) {
-  const dict = {}
+  let res = 0
   for (let i = 0; i < nums.length; i++) {
-    if (dict[nums[i]]) {
-      dict[nums[i]]++
-    } else {
-      dict[nums[i]] = 1
-    }
+    res = res ^ nums[i]
   }
-  for (const key in dict) {
-    if (dict[key] === 1) {
-      return Number(key)
-    }
-  }
+  return res
 }
 export { singleNumber }
