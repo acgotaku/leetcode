@@ -33,28 +33,31 @@ const copyRandomList = function (head) {
   if (head === null) {
     return null
   }
+  const map = new Map()
   let p = head
-  const oldPointer = []
-  const newPointer = []
+
   while (p) {
-    oldPointer.push(p)
+    map.set(p, new Node(p.val))
     p = p.next
   }
-  let newHead = null
-  for (let i = oldPointer.length - 1; i >= 0; i--) {
-    const pointer = new Node(oldPointer[i].val)
-    pointer.next = newHead
-    newHead = pointer
-    newPointer.unshift(pointer)
-  }
-  for (let i = 0; i < oldPointer.length; i++) {
-    if (oldPointer[i].random) {
-      const index = oldPointer.findIndex(p => p === oldPointer[i].random)
-      newPointer[i].random = newPointer[index]
+
+  p = head
+  while (p) {
+    const newNode = map.get(p)
+    if (p.next) {
+      newNode.next = map.get(p.next)
     } else {
-      newPointer[i].random = null
+      newNode.next = null
     }
+
+    if (p.random) {
+      newNode.random = map.get(p.random)
+    } else {
+      newNode.random = null
+    }
+
+    p = p.next
   }
-  return newPointer[0]
+  return map.get(head)
 }
 export { Node, copyRandomList }
