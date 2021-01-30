@@ -40,24 +40,10 @@
  */
 const maxProfit = function (prices) {
   let profit = 0
-  let buy = -1
-  for (let i = 0; i < prices.length; i++) {
-    if (buy === -1) {
-      buy = prices[i]
-      continue
-    } else {
-      if (buy > prices[i]) {
-        buy = prices[i]
-      } else {
-        if (i + 1 < prices.length) {
-          if (prices[i + 1] < prices[i]) {
-            profit += prices[i] - buy
-            buy = -1
-          }
-        } else {
-          profit += prices[i] - buy
-        }
-      }
+
+  for (let i = 0; i < prices.length - 1; i++) {
+    if (prices[i + 1] > prices[i]) {
+      profit += prices[i + 1] - prices[i]
     }
   }
 
