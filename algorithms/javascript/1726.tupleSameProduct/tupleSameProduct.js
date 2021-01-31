@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/tuple-with-same-product/
 // Author : acgotaku311
-// Date   : 2021-02-17
+// Date   : 2021-01-17
 
 /**
  * @param {number[]} nums

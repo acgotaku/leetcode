@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/change-minimum-characters-to-satisfy-one-of-three-conditions/
 // Author : acgotaku311
-// Date   : 2021-02-24
+// Date   : 2021-01-24
 
 /**
  * @param {string} a

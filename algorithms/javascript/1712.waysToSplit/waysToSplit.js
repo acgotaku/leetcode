@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/ways-to-split-array-into-three-subarrays/
 // Author : acgotaku311
-// Date   : 2021-02-06
+// Date   : 2021-01-06
 
 /**
  * @param {number[]} nums

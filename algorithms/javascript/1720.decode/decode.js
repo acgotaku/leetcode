@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/decode-xored-array/
 // Author : acgotaku311
-// Date   : 2021-02-12
+// Date   : 2021-01-12
 
 /**
  * @param {number[]} encoded

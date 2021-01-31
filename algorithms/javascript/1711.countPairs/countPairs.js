@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/count-good-meals/
 // Author : acgotaku311
-// Date   : 2021-02-03
+// Date   : 2021-01-03
 
 /**
  * @param {number[]} deliciousness

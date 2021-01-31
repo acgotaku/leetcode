@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/maximum-units-on-a-truck/
 // Author : acgotaku311
-// Date   : 2021-02-03
+// Date   : 2021-01-03
 
 /**
  * @param {number[][]} boxTypes
