@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/restore-the-array-from-adjacent-pairs/
 // Author : acgotaku311
-// Date   : 2021-01-31
+// Date   : 2021-02-01
 
 /**
  * @param {number[][]} adjacentPairs
