@@ -1,4 +1,4 @@
-// Source : https://leetcode.com/problems/minimum-incompatibility/
+// Source : https://leetcode.com/problems/stone-game-vii/
 // Author : acgotaku311
 // Date   : 2020-12-13
 
