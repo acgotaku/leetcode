@@ -28,13 +28,13 @@ function ListNode (val) {
  * @return {boolean}
  */
 const hasCycle = function (head) {
-  const map = new Map()
-  while (head) {
-    if (map.has(head)) {
+  let slow = head
+  let fast = head
+  while (fast && fast.next && fast.next.next) {
+    fast = fast.next.next
+    slow = slow.next
+    if (fast === slow) {
       return true
-    } else {
-      map.set(head, true)
-      head = head.next
     }
   }
   return false
