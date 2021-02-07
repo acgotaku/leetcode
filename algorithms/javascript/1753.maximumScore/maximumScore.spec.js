@@ -29,4 +29,18 @@ describe('check', function () {
     const result = 23
     expect(maximumScore(a, b, c)).toEqual(result)
   })
+  it('test case 5', function () {
+    const a = 0
+    const b = 0
+    const c = 8
+    const result = 0
+    expect(maximumScore(a, b, c)).toEqual(result)
+  })
+  it('test case 6', function () {
+    const a = 0
+    const b = 1
+    const c = 8
+    const result = 1
+    expect(maximumScore(a, b, c)).toEqual(result)
+  })
 })

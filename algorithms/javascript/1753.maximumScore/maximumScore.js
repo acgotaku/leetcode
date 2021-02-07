@@ -9,20 +9,17 @@
  * @return {number}
  */
 const maximumScore = function (a, b, c) {
-  const calc = (a, b, c, point) => {
-    [a, b, c] = [a, b, c].sort((a, b) => a - b)
-    if (a === 0 && b === 0) {
-      return point
-    }
-    if (a + b === c) {
-      return c + point
-    } else if (a + b < c) {
-      return a + b + point
-    } else {
-      return Number.parseInt((a + b - c) / 2) + c + point
-    }
+  [a, b, c] = [a, b, c].sort((a, b) => a - b)
+  if (a === 0 && b === 0) {
+    return 0
   }
-  return calc(a, b, c, 0)
+  if (a + b === c) {
+    return c
+  } else if (a + b < c) {
+    return a + b
+  } else {
+    return Number.parseInt((a + b - c) / 2) + c
+  }
 }
 
 export { maximumScore }
