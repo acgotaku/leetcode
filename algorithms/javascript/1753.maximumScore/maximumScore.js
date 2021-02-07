@@ -12,8 +12,7 @@ const maximumScore = function (a, b, c) {
   [a, b, c] = [a, b, c].sort((a, b) => a - b)
   if (a === 0 && b === 0) {
     return 0
-  }
-  if (a + b === c) {
+  } else if (a + b === c) {
     return c
   } else if (a + b < c) {
     return a + b
