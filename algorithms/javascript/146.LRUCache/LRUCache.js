@@ -21,8 +21,8 @@
  */
 const LRUCache = function (capacity) {
   this.capacity = capacity
-  this.dict = {}
-  this.access = 0
+  this.cache = new Map()
+  this.least = new Set()
 }
 
 /**
@@ -30,12 +30,12 @@ const LRUCache = function (capacity) {
  * @return {number}
  */
 LRUCache.prototype.get = function (key) {
-  if (this.dict[key]) {
-    this.dict[key].access = this.access++
-    return this.dict[key].value
-  } else {
+  if (!this.cache.has(key)) {
     return -1
   }
+  this.least.delete(key)
+  this.least.add(key)
+  return this.cache.get(key)
 }
 
 /**
@@ -44,23 +44,18 @@ LRUCache.prototype.get = function (key) {
  * @return {void}
  */
 LRUCache.prototype.put = function (key, value) {
-  if (this.dict[key]) {
-    this.dict[key] = {
-      value,
-      access: this.access++
-    }
+  if (this.cache.size < this.capacity || this.cache.has(key)) {
+    this.cache.set(key, value)
   } else {
-    const keys = Object.keys(this.dict)
-    if (keys.length >= this.capacity) {
-      const remove = keys.sort((a, b) => this.dict[a].access - this.dict[b].access)
-      delete this.dict[remove[0]]
-    }
-
-    this.dict[key] = {
-      value,
-      access: this.access++
-    }
+    const evicted = this.least.values().next().value
+    this.least.delete(evicted)
+    this.cache.delete(evicted)
+    this.cache.set(key, value)
   }
+  if (this.least.has(key)) {
+    this.least.delete(key)
+  }
+  this.least.add(key)
 }
 
 /**
