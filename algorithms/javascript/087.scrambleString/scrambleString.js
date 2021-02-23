@@ -53,27 +53,45 @@
  * @return {boolean}
  */
 const isScramble = function (s1, s2) {
-  const recursion = (s1, s2) => {
-    if (s1 === s2) {
-      return true
-    }
-    const sort1 = s1.split('').sort().join('')
-    const sort2 = s2.split('').sort().join('')
-    if (sort1 !== sort2) {
-      return false
-    }
-
-    for (let i = 1; i < s1.length; i++) {
-      if (recursion(s1.substr(0, i), s2.substr(0, i)) && recursion(s1.substr(i, s1.length - i), s2.substr(i, s2.length - i))) {
-        return true
-      }
-      if (recursion(s1.substr(0, i), s2.substr(s2.length - i, i)) && recursion(s1.substr(i, s1.length - i), s2.substr(0, s2.length - i))) {
-        return true
-      }
-    }
+  if (s1 === s2) {
+    return true
+  }
+  const a1 = s1.split('')
+  const a2 = s2.split('')
+  if (a1.length !== a2.length) {
     return false
   }
-  return recursion(s1, s2)
+
+  const n = a1.length
+  const arr = new Array(n).fill(false)
+  for (let i = 0; i < n; i++) {
+    arr[i] = new Array(n).fill(false)
+    for (let j = 0; j < n; j++) {
+      arr[i][j] = new Array(n + 1).fill(false)
+      arr[i][j][1] = a1[i] === a2[j]
+    }
+  }
+  for (let k = 2; k <= n; k++) {
+    for (let i = 0; i <= n - k; i++) {
+      for (let j = 0; j <= n - k; j++) {
+        arr[i][j][k] = false
+        for (let w = 1; w <= k - 1; w++) {
+          if (arr[i][j][w] && arr[i + w][j + w][k - w]) {
+            arr[i][j][k] = true
+            break
+          }
+        }
+        for (let w = 1; w <= k - 1; w++) {
+          if (arr[i][j + k - w][w] && arr[i + w][j][k - w]) {
+            arr[i][j][k] = true
+            break
+          }
+        }
+      }
+    }
+  }
+
+  return arr[0][0][n]
 }
 
 export { isScramble }
