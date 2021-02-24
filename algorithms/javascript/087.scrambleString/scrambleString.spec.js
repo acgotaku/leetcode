@@ -26,4 +26,9 @@ describe('isScramble', function () {
     const s2 = 'bca'
     expect(isScramble(s1, s2)).toEqual(true)
   })
+  it('test case 6', function () {
+    const s1 = 'ac'
+    const s2 = 'bca'
+    expect(isScramble(s1, s2)).toEqual(false)
+  })
 })

@@ -29,16 +29,20 @@
  */
 const maxProduct = function (nums) {
   const len = nums.length
-  let maxResult = Number.MIN_SAFE_INTEGER
-  for (let i = 0; i < len - 1; i++) {
-    let res = nums[i]
-    maxResult = Math.max(maxResult, res)
-    for (let j = i + 1; j < len; j++) {
-      res = res * nums[j]
-      maxResult = Math.max(maxResult, res)
-    }
+  let maxResult = nums[0]
+  let maxPrev = nums[0]
+  let minPrev = nums[0]
+  let minCurrent = nums[0]
+  let maxCurrent = nums[0]
+
+  for (let i = 1; i < len; i++) {
+    maxCurrent = Math.max(maxPrev * nums[i], minPrev * nums[i], nums[i])
+    minCurrent = Math.min(maxPrev * nums[i], minPrev * nums[i], nums[i])
+    maxResult = Math.max(maxCurrent, maxResult)
+    maxPrev = maxCurrent
+    minPrev = minCurrent
   }
-  maxResult = Math.max(maxResult, nums[len - 1])
+
   return maxResult
 }
 export { maxProduct }
