@@ -28,8 +28,22 @@
  * @return {string}
  */
 const reverseWords = function (s) {
-  const words = s.trim().split(' ').filter(x => x)
-  return words.reverse().join(' ')
+  const words = []
+  let str = ''
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === ' ') {
+      if (str.length > 0) {
+        words.unshift(str)
+        str = ''
+      }
+    } else {
+      str += s[i]
+    }
+  }
+  if (str.length > 0) {
+    words.unshift(str)
+  }
+  return words.join(' ')
 }
 
 export { reverseWords }
