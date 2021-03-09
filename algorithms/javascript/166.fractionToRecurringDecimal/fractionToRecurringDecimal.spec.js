@@ -1,6 +1,6 @@
 import { fractionToDecimal } from './fractionToRecurringDecimal'
 
-describe('compareVersion', function () {
+describe('fractionToDecimal', function () {
   it('test case 1', function () {
     const numerator = 1
     const denominator = 2
