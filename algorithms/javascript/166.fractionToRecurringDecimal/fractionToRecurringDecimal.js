@@ -26,21 +26,32 @@ const fractionToDecimal = function (numerator, denominator) {
   const nums = []
   const dict = {}
 
+  if (numerator === 0) {
+    return '0'
+  }
+
+  if (numerator < 0 ^ denominator < 0) {
+    nums.push('-')
+  }
+
+  numerator = BigInt(Math.abs(numerator))
+  denominator = BigInt(Math.abs(denominator))
+
   let remainder = numerator % denominator
   const division = Number.parseInt(numerator / denominator)
   nums.push(division)
-  if (remainder === 0) {
-    return division.toString()
+  if (remainder === BigInt(0)) {
+    return nums.join('')
   }
   nums.push('.')
-  while (remainder !== 0) {
+  while (remainder !== BigInt(0)) {
     if (dict[remainder]) {
       nums.splice(dict[remainder], 0, '(')
       nums.push(')')
       break
     }
     dict[remainder] = nums.length
-    remainder = remainder * 10
+    remainder = remainder * BigInt(10)
     nums.push(Number.parseInt(remainder / denominator))
     remainder = remainder % denominator
   }
