@@ -32,33 +32,37 @@
  * @return {boolean}
  */
 const isMatch = function (s, p) {
-  const FRONT = -1
-  const loop = (s, i, p, j) => {
-    if (j === FRONT) {
-      if (i === FRONT) {
-        return true
-      } else {
-        return false
+  const m = s.length
+  const n = p.length
+  const dp = new Array(m + 1).fill(false).map(() => new Array(n + 1).fill(false))
+  for (let i = 0; i <= m; i++) {
+    for (let j = 0; j <= n; j++) {
+      if (i === 0 && j === 0) {
+        dp[i][j] = true
+        continue
       }
-    }
-
-    if (p[j] === '*') {
-      if (i > FRONT && (p[j - 1] === '.' || p[j - 1] === s[i])) {
-        if (loop(s, i - 1, p, j)) {
-          return true
+      if (j === 0) {
+        dp[i][j] = false
+        continue
+      }
+      if (p[j - 1] !== '*') {
+        if (i > 0 && (p[j - 1] === '.' || p[j - 1] === s[i - 1])) {
+          dp[i][j] = dp[i - 1][j - 1]
+        }
+      } else {
+        if (j > 1) {
+          dp[i][j] = dp[i][j] || dp[i][j - 2]
+        }
+        if (i > 0 && j > 1) {
+          if (p[j - 2] === '.' || p[j - 2] === s[i - 1]) {
+            dp[i][j] = dp[i][j] || dp[i - 1][j]
+          }
         }
       }
-      return loop(s, i, p, j - 2)
     }
-
-    if (p[j] === '.' || p[j] === s[i]) {
-      return loop(s, i - 1, p, j - 1)
-    }
-
-    return false
   }
 
-  return loop(s, s.length - 1, p, p.length - 1)
+  return dp[m][n]
 }
 
 export { isMatch }
