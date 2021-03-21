@@ -13,4 +13,10 @@ describe('getNumberOfBacklogOrders', function () {
     const result = 999999984
     expect(getNumberOfBacklogOrders(orders)).toEqual(result)
   })
+  it('test case 3', function () {
+    const orders = [[10, 5, 0], [15, 2, 0], [25, 1, 0], [3, 10, 1]]
+
+    const result = 2
+    expect(getNumberOfBacklogOrders(orders)).toEqual(result)
+  })
 })
