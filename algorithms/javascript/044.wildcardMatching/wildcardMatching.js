@@ -32,31 +32,34 @@
  * @return {boolean}
  */
 const isMatch = function (s, p) {
-  const sLen = s.length
-  const pLen = p.length
-  let i = 0
-  let j = 0
-  let startIndex = -1
-  let match = 0
-  while (i < sLen) {
-    if (p[j] === '*') {
-      startIndex = ++j
-      match = i
-    } else if (p[j] === '?' || s[i] === p[j]) {
-      i++
-      j++
-    } else if (startIndex !== -1) {
-      j = startIndex
-      i = ++match
-    } else {
-      return false
+  const m = s.length
+  const n = p.length
+  const dp = new Array(m + 1).fill(false).map(() => new Array(n + 1).fill(false))
+  for (let i = 0; i <= m; i++) {
+    for (let j = 0; j <= n; j++) {
+      if (i === 0 && j === 0) {
+        dp[i][j] = true
+        continue
+      }
+      if (j === 0) {
+        dp[i][j] = false
+        continue
+      }
+      if (p[j - 1] !== '*') {
+        if (i > 0 && (p[j - 1] === '?' || p[j - 1] === s[i - 1])) {
+          dp[i][j] = dp[i - 1][j - 1]
+        }
+      } else {
+        dp[i][j] = dp[i][j] || dp[i][j - 1]
+
+        if (i > 0) {
+          dp[i][j] = dp[i][j] || dp[i - 1][j]
+        }
+      }
     }
   }
-  while (j < pLen && p[j] === '*') {
-    j++
-  }
 
-  return j === pLen
+  return dp[m][n]
 }
 
 export { isMatch }
