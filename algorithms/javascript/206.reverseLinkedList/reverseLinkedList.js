@@ -31,22 +31,16 @@ function ListNode (val, next) {
  * @return {ListNode}
  */
 const reverseList = function (head) {
-  const pHead = new ListNode(0)
-  const stack = []
-  let p = head
-  while (p) {
-    stack.push(p)
-    p = p.next
+  let h = null
+  let p = null
+  while (head) {
+    p = head.next
+    head.next = h
+    h = head
+    head = p
   }
-  p = pHead
-  while (stack.length) {
-    const node = stack.pop()
-    p.next = node
-    p = node
-  }
-  p.next = null
 
-  return pHead.next
+  return h
 }
 
 export { ListNode, reverseList }

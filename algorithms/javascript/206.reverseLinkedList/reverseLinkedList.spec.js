@@ -10,4 +10,14 @@ describe('reverseList', function () {
     const result = [5, 4, 3, 2, 1].reduceRight(reducer, null)
     expect(reverseList(head)).toEqual(result)
   })
+  it('test case 2', function () {
+    const head = [1, 2].reduceRight(reducer, null)
+    const result = [2, 1].reduceRight(reducer, null)
+    expect(reverseList(head)).toEqual(result)
+  })
+  it('test case 3', function () {
+    const head = [].reduceRight(reducer, null)
+    const result = [].reduceRight(reducer, null)
+    expect(reverseList(head)).toEqual(result)
+  })
 })
