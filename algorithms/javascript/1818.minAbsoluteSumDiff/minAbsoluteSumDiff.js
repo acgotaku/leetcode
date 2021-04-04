@@ -1,4 +1,4 @@
-// Source : https://leetcode.com/contest/weekly-contest-235/problems/minimum-absolute-sum-difference/
+// Source : https://leetcode.com/problems/minimum-absolute-sum-difference/
 // Author : acgotaku311
 // Date   : 2021-04-04
 
