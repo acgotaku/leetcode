@@ -18,7 +18,7 @@ const getOrder = function (tasks) {
     return task
   })
   tasks.sort((a, b) => { return a[0] - b[0] })
-  const queue = new MinPriorityQueue({ priority: (task) => task[1] })
+  const queue = new MinPriorityQueue({ priority: ([e, p, idx]) => p + 10 ** (-7) * (idx + 1) })
   for (let i = 0; i < len; i++) {
     if (queue.isEmpty()) {
       time = Math.max(time, tasks[index][0])
