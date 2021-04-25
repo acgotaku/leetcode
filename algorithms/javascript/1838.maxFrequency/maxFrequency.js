@@ -9,23 +9,17 @@
  */
 const maxFrequency = function (nums, k) {
   nums = nums.sort((a, b) => (a - b))
-  let time = k
-  let maxCount = 1
   let count = 1
-  for (let i = 0; i < nums.length - 1; i++) {
-    time = k
-    count = 1
-    for (let j = i + 1; j < nums.length; j++) {
-      const gap = (nums[j] - nums[j - 1]) * (j - i)
-      if (gap <= time) {
-        time = time - gap
-        count++
-        maxCount = Math.max(maxCount, count)
-      } else {
-        break
-      }
+  let total = 0
+  let l = 0
+  for (let r = 1; r < nums.length; r++) {
+    total += (nums[r] - nums[r - 1]) * (r - l)
+    while (total > k) {
+      total -= nums[r] - nums[l]
+      l++
     }
+    count = Math.max(count, r - l + 1)
   }
-  return maxCount
+  return count
 }
 export { maxFrequency }
