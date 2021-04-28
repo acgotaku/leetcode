@@ -2,11 +2,41 @@
 // Author : acgotaku311
 // Date   : 2021-04-28
 
+const base = 'a'.charCodeAt(0)
+const len = 26
+
+const TrieNode = function () {
+  this.isEndValue = false
+  this.links = new Array(len).fill(null)
+}
+
+TrieNode.prototype.containsKey = function (key) {
+  const code = key.charCodeAt(0)
+  return this.links[code - base] !== null
+}
+
+TrieNode.prototype.get = function (key) {
+  const code = key.charCodeAt(0)
+  return this.links[code - base]
+}
+
+TrieNode.prototype.put = function (key, node) {
+  const code = key.charCodeAt(0)
+  this.links[code - base] = node
+}
+
+TrieNode.prototype.isEnd = function () {
+  return this.isEndValue
+}
+
+TrieNode.prototype.setEnd = function () {
+  this.isEndValue = true
+}
 /**
  * Initialize your data structure here.
  */
 const WordDictionary = function () {
-  this.words = []
+  this.root = new TrieNode()
 }
 
 /**
@@ -14,7 +44,15 @@ const WordDictionary = function () {
  * @return {void}
  */
 WordDictionary.prototype.addWord = function (word) {
-  this.words.push(word)
+  let node = this.root
+  for (let i = 0; i < word.length; i++) {
+    const currentChar = word[i]
+    if (!node.containsKey(currentChar)) {
+      node.put(currentChar, new TrieNode())
+    }
+    node = node.get(currentChar)
+  }
+  node.setEnd()
 }
 
 /**
@@ -22,27 +60,38 @@ WordDictionary.prototype.addWord = function (word) {
  * @return {boolean}
  */
 WordDictionary.prototype.search = function (word) {
-  let validWords = this.words.slice()
-  const len = word.length
+  const node = this.root
+  return this.searchWord(word, node)
+}
 
+/**
+ * @param {string} word
+ * @param {TrieNode} root
+ * @return {boolean}
+ */
+WordDictionary.prototype.searchWord = function (word, root) {
+  let node = root
   for (let i = 0; i < word.length; i++) {
-    if (validWords.length === 0) {
-      return false
-    }
-    const alphabet = word[i]
-    const tempWords = []
-    for (let j = 0; j < validWords.length; j++) {
-      if (word[i] === '.') {
-        if (validWords[j][i] && validWords[j].length === len) {
-          tempWords.push(validWords[j])
+    const currentChar = word[i]
+    if (currentChar === '.') {
+      for (let j = 0; j < len; j++) {
+        const tempChar = String.fromCharCode(base + j)
+        if (node.containsKey(tempChar)) {
+          if (this.searchWord(word.substring(i + 1), node.get(tempChar))) {
+            return true
+          }
         }
-      } else if (validWords[j][i] === alphabet && validWords[j].length === len) {
-        tempWords.push(validWords[j])
+      }
+      return false
+    } else {
+      if (node.containsKey(currentChar)) {
+        node = node.get(currentChar)
+      } else {
+        return false
       }
     }
-    validWords = tempWords
   }
-  return validWords.length > 0
+  return node.isEnd()
 }
 
 /**
