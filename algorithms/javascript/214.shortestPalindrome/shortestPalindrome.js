@@ -14,29 +14,29 @@
  *
  **********************************************************************************/
 
-const isPalindrome = (str) => {
+const kmp = (str) => {
   const len = str.length
-  for (let i = 0; i < len / 2; i++) {
-    if (str[i] !== str[len - i - 1]) {
-      return false
+  const next = new Array(len).fill(0)
+  for (let i = 1; i < len; i++) {
+    let j = next[i - 1]
+    while (j > 0 && str[i] !== str[j]) {
+      j = next[j - 1]
     }
+    if (str[i] === str[j]) {
+      j++
+    }
+    next[i] = j
   }
-  return true
+  return next
 }
-
 /**
  * @param {string} s
  * @return {string}
  */
 const shortestPalindrome = function (s) {
-  let str = s
-  const len = s.length
-  let count = 0
-  while (!isPalindrome(str)) {
-    count++
-    str = s.substring(0, len - count)
-  }
-  return s.substring(len - count).split('').reverse().join('') + s
+  const str = s + '#' + s.split('').reverse().join('')
+  const maxLen = kmp(str).pop()
+  return s.substring(maxLen).split('').reverse().join('') + s
 }
 
 export { shortestPalindrome }
