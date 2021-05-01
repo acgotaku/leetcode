@@ -31,7 +31,7 @@ const radomPartition = (nums, l, r) => {
 const partition = (nums, l, r) => {
   let count = l - 1
   for (let i = l; i < r; i++) {
-    if (nums[i] <= nums[r]) {
+    if (nums[i] > nums[r]) {
       count++
       [nums[count], nums[i]] = [nums[i], nums[count]]
     }
@@ -55,7 +55,7 @@ const quickSelect = (nums, l, r, k) => {
  * @return {number}
  */
 const findKthLargest = function (nums, k) {
-  return quickSelect(nums, 0, nums.length - 1, nums.length - k)
+  return quickSelect(nums, 0, nums.length - 1, k - 1)
 }
 
 export { findKthLargest }
