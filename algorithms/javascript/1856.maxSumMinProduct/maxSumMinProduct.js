@@ -12,14 +12,17 @@ const maxSumMinProduct = function (nums) {
   const mod = BigInt(1000000007)
   const left = new Array(len).fill(0)
   const right = new Array(len).fill(len - 1)
-  const stack = []
+  let stack = []
   for (let i = 0; i < len; i++) {
-    while (stack.length > 0 && nums[stack[stack.length - 1]] >= nums[i]) {
+    while (stack.length > 0 && nums[i] < nums[stack[stack.length - 1]]) {
       right[stack.pop()] = i - 1
     }
-
-    if (stack.length > 0) {
-      left[i] = stack[stack.length - 1] + 1
+    stack.push(i)
+  }
+  stack = []
+  for (let i = len - 1; i >= 0; i--) {
+    while (stack.length > 0 && nums[i] < nums[stack[stack.length - 1]]) {
+      left[stack.pop()] = i + 1
     }
     stack.push(i)
   }
