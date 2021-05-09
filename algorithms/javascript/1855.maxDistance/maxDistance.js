@@ -12,20 +12,16 @@ const maxDistance = function (nums1, nums2) {
   const len1 = nums1.length
   const len2 = nums2.length
 
-  const findDistance = (i, j) => {
-    if (nums1[i] <= nums2[j] && i <= j) {
+  let i = 0
+
+  for (let j = 0; j < len2; j++) {
+    while (i < len1 && nums1[i] > nums2[j]) {
+      i++
+    }
+    if (i < len1) {
       maxDis = Math.max(maxDis, j - i)
     }
-    if (i < j) {
-      if (i < len1 - 1) {
-        findDistance(i + 1, j)
-      }
-      if (j > 0) {
-        findDistance(i, j - 1)
-      }
-    }
   }
-  findDistance(0, len2 - 1)
   return maxDis
 }
 export { maxDistance }
