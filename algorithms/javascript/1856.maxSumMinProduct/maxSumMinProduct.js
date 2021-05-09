@@ -30,7 +30,7 @@ const maxSumMinProduct = function (nums) {
   }
 
   for (let i = 0; i < len; i++) {
-    const res = ((sum[right[i] + 1] - sum[left[i]]) * BigInt(nums[i])) % mod
+    const res = ((sum[right[i] + 1] - sum[left[i]]) * BigInt(nums[i]))
     if (res > best) {
       best = res
     }
