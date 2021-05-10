@@ -30,7 +30,7 @@
  */
 const combinationSum3 = function (k, n) {
   const res = []
-  const loop = (arr, target) => {
+  const dfs = (arr, target) => {
     if (target < 0 || arr.length > k) {
       return
     }
@@ -39,12 +39,12 @@ const combinationSum3 = function (k, n) {
     }
     for (let i = arr[arr.length - 1] + 1; i <= 9; i++) {
       arr.push(i)
-      loop(arr, target - i)
+      dfs(arr, target - i)
       arr.pop()
     }
   }
   for (let i = 1; i <= 9; i++) {
-    loop([i], n - i)
+    dfs([i], n - i)
   }
   return res
 }
