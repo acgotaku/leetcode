@@ -10,21 +10,26 @@
  */
 const canReach = function (s, minJump, maxJump) {
   const len = s.length
-  if (s === '0') {
-    return true
-  }
   if (s[len - 1] === '1') {
     return false
   }
-  const minIndex = minJump
-  const maxIndex = Math.min(maxJump, len - 1)
-  for (let i = maxIndex; i >= minIndex; i--) {
-    if (s[i] === '0') {
-      if (canReach(s.substring(i), minJump, maxJump)) {
+
+  const queue = []
+  queue.push(0)
+  while (queue.length > 0) {
+    const index = queue.pop()
+    const minIndex = index + minJump
+    const maxIndex = Math.min(index + maxJump, len - 1)
+    for (let i = maxIndex; i >= minIndex; i--) {
+      if (s[i] === '0') {
+        queue.push(i)
+      }
+      if (i === len - 1) {
         return true
       }
     }
   }
+
   return false
 }
 export { canReach }
