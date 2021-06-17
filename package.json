@@ -48,6 +48,6 @@
     "webpack": "^5.37.1"
   },
   "dependencies": {
-    "@datastructures-js/priority-queue": "^5.0.1"
+    "@datastructures-js/priority-queue": "^5.1.0"
   }
 }
