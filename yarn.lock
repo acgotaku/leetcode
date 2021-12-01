@@ -838,17 +838,17 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@datastructures-js/heap@^3.0.0":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@datastructures-js/heap/-/heap-3.0.1.tgz#4bb7db436ca4ab78d25505b2ae82d85b042ab23e"
-  integrity sha512-1nphUN9dVoVL2KsdipFYJMxgAZhsOE7fNEUW09IhT0z/cNFj5h6Nf3lcA1smCEC0BI420FTuPMcfOAi1Q7RELw==
+"@datastructures-js/heap@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@datastructures-js/heap/-/heap-3.2.0.tgz#d8fcdbf58c462c8a3f0fdfd9c6a57ca11505321e"
+  integrity sha512-FcU5ZAyb+VIOZz1HABsJUsbJi2ZyUDO7aoe97hq4d3tK3z8nMgwdxf5bO0gafR0ExFi18YTspntqHLzt4XOgnA==
 
-"@datastructures-js/priority-queue@^5.0.1":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@datastructures-js/priority-queue/-/priority-queue-5.0.2.tgz#71c2226b460410b7cd93fef9fdc132bd8c008bd6"
-  integrity sha512-SPiFg7KAG0P4otLW8ph8MEeN+G1HdrzJl+5GdKa4X9f2e5m3OUO5nTqACsBJJOsdoKedjKuGWMbFp+aqDKvXIA==
+"@datastructures-js/priority-queue@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@datastructures-js/priority-queue/-/priority-queue-5.3.0.tgz#89afce79a19a3226c12cc6e9288f94ff60af26cf"
+  integrity sha512-0Dl0UooE9Uzz85qBP46HTjQHS5GN7NMNluN5/nMfxQAndG/1eNBJpBntLGT5QJarvMO3poLNBJzA3S4GPajp+w==
   dependencies:
-    "@datastructures-js/heap" "^3.0.0"
+    "@datastructures-js/heap" "^3.2.0"
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
