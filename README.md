@@ -111,3 +111,10 @@
 | 106 | [Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)                      | [JavaScript](./algorithms/javascript/106.constructBinaryTreeFromInorderAndPostorderTraversal/constructBinaryTreeFromInorderAndPostorderTraversal.js) | Medium     |
 | 107 | [Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/)                                       | [JavaScript](./algorithms/javascript/107.binaryTreeLevelOrderTraversal.II/binaryTreeLevelOrderTraversal.II.js)                                       | Easy       |
 | 108 | [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)                           | [JavaScript](./algorithms/javascript/108.convertSortedArrayToBinarySearchTree/convertSortedArrayToBinarySearchTree.js)                               | Easy       |
+
+
+## Run specific test
+
+```bash
+pnpm test:unit -- --path=./algorithms/javascript/001.twoSum
+```

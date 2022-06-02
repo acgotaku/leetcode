@@ -1,4 +1,3 @@
-import 'babel-polyfill'
 import { isValidSudoku } from './validSudoku'
 
 describe('isValidSudoku', function () {
