@@ -41,8 +41,8 @@ const minimumIncompatibility = function (nums, k) {
     if (subset.length === len) {
       sets.push(subset)
       stack.push({
-        data: data,
-        sets: sets
+        data,
+        sets
       })
       return
     }
