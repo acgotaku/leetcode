@@ -116,5 +116,5 @@
 ## Run specific test
 
 ```bash
-pnpm test:unit -- --path=./algorithms/javascript/001.twoSum
+pnpm test:unit --path=./algorithms/javascript/001.twoSum
 ```
