@@ -14,7 +14,16 @@
  * @return {boolean}
  */
 const containsDuplicate = function (nums) {
-  return nums.length !== new Set(nums).size
+  const map = new Map()
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i]
+    if (map.has(num)) {
+      return true
+    } else {
+      map.set(num, true)
+    }
+  }
+  return false
 }
 
 export { containsDuplicate }
