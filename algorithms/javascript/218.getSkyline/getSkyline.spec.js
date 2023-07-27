@@ -13,10 +13,10 @@ describe('getSkyline', function () {
     const result = [[0, 3], [5, 0]]
     expect(getSkyline(buildings)).toEqual(result)
   })
-  // it('test case 3', function () {
-  //   const buildings = [[1, 2, 1], [1, 2, 2], [1, 2, 3]]
+  it('test case 3', function () {
+    const buildings = [[1, 2, 1], [1, 2, 2], [1, 2, 3]]
 
-  //   const result = [[1, 3], [2, 0]]
-  //   expect(getSkyline(buildings)).toEqual(result)
-  // })
+    const result = [[1, 3], [2, 0]]
+    expect(getSkyline(buildings)).toEqual(result)
+  })
 })

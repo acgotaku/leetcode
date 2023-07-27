@@ -60,6 +60,32 @@
  *
  *
  **********************************************************************************/
+
+/*
+ * Sweep line with max-heap
+ * ------------------------
+ * Notice that "key points" are either the left or right edges of the buildings.
+ *
+ * Therefore, we first obtain both the edges of all the N buildings, and store the 2N edges in a sorted array.
+ * Maintain a max-heap of building heights while scanning through the edge array:
+ * 1) If the current edge is a left edge, then add the height of its associated building to the max-heap;
+ * 2) If the edge is a right one, remove the associated height from the heap.
+ *
+ * Then we take the top value of the heap (yi) as the maximum height at the current edge position (xi).
+ * Now (xi, yi) is a potential key point.
+ *
+ * If yi is the same as the height of the last key point in the result list, it means that this key point
+ * is not a REAL key point, but rather a horizontal continuation of the last point, so it should be discarded;
+ *
+ * otherwise, we add (xi,yi) to the result list because it is a real key point.
+ *
+ * Repeat this process until all the edges are checked.
+ *
+ * It takes O(NlogN) time to sort the edge array. For each of the 2N edges,
+ * it takes O(1) time to query the maximum height but O(logN) time to add
+ * or remove elements. Overall, this solution takes O(NlogN) time.
+ */
+
 /**
  * @param {number[][]} buildings
  * @return {number[][]}
