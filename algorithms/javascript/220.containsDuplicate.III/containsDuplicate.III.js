@@ -25,19 +25,17 @@ const containsNearbyAlmostDuplicate = function (nums, indexDiff, valueDiff) {
   const map = new Map()
   for (let i = 0; i < len; i++) {
     const num = nums[i]
-    // bucket sort
-    const key = Math.floor(num / (valueDiff + 1))
-    if (map.has(key)) {
-      return true
-    } else if (map.has(key - 1) && Math.abs(map.get(key - 1) - num) <= valueDiff) {
-      return true
-    } else if (map.has(key + 1) && Math.abs(map.get(key + 1) - num) <= valueDiff) {
-      return true
+    const keys = map.keys()
+    for (const key of keys) {
+      if (Math.abs(map.get(key) - i) > indexDiff) {
+        map.delete(key)
+        continue
+      }
+      if (Math.abs(key - num) <= valueDiff) {
+        return true
+      }
     }
-    map.set(key, num)
-    if (i >= indexDiff) {
-      map.delete(Math.floor(nums[i - indexDiff] / (valueDiff + 1)))
-    }
+    map.set(num, i)
   }
   return false
 }
