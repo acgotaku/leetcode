@@ -28,69 +28,37 @@
  * @return {number[][]}
  */
 
-const threeSum = function (nums, target) {
-  const len = nums.length
-  const result = []
-  for (let i = 0; i <= len - 3; i++) {
-    if (i > 0 && nums[i] === nums[i - 1]) {
-      continue
-    }
-    const a = nums[i]
-    let start = i + 1
-    let end = len - 1
-    while (start < end) {
-      const b = nums[start]
-      const c = nums[end]
-      const sum = a + b + c
-      if (sum === target) {
-        result.push([a, b, c])
-        while (start < len - 1 && nums[start] === nums[start + 1]) {
-          start++
-        }
+const fourSum = function (nums, target) {
+  nums.sort((a, b) => a - b)
+  const res = []
+  const n = nums.length
 
-        while (end > 0 && nums[end] === nums[end - 1]) {
-          end--
+  for (let i = 0; i < n - 3; i++) {
+    if (i > 0 && nums[i] === nums[i - 1]) continue
+    for (let j = i + 1; j < n - 2; j++) {
+      if (j > i + 1 && nums[j] === nums[j - 1]) continue
+
+      let left = j + 1
+      let right = n - 1
+
+      while (left < right) {
+        const sum = nums[i] + nums[j] + nums[left] + nums[right]
+        if (sum === target) {
+          res.push([nums[i], nums[j], nums[left], nums[right]])
+          while (left < right && nums[left] === nums[left + 1]) left++
+          while (left < right && nums[right] === nums[right - 1]) right--
+          left++
+          right--
+        } else if (sum < target) {
+          left++
+        } else {
+          right--
         }
-        start++
-        end--
-      } else if (sum > target) {
-        while (end > 0 && nums[end] === nums[end - 1]) {
-          end--
-        }
-        end--
-      } else {
-        while (start < len - 1 && nums[start] === nums[start + 1]) {
-          start++
-        }
-        start++
       }
     }
   }
-  return result
-}
-const fourSum = (nums, target) => {
-  nums.sort((a, b) => {
-    return a - b
-  })
-  const result = []
-  const len = nums.length
-  if (len < 4) {
-    return result
-  }
-  for (let i = 0; i < len - 3; i++) {
-    if (i > 0 && nums[i - 1] === nums[i]) {
-      continue
-    }
-    const copy = [].slice.call(nums)
-    copy.splice(0, i + 1)
-    const ret = threeSum(copy, target - nums[i])
-    for (let j = 0; j < ret.length; j++) {
-      ret[j].unshift(nums[i])
-      result.push(ret[j])
-    }
-  }
 
-  return result
+  return res
 }
 
 export { fourSum }
