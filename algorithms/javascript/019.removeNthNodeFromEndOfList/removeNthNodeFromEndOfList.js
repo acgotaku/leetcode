@@ -23,6 +23,15 @@ function ListNode (val) {
   this.val = val
   this.next = null
 }
+// const printListNode = function (head) {
+//   const values = []
+//   let current = head
+//   while (current) {
+//     values.push(current.val)
+//     current = current.next
+//   }
+//   console.log(values.join(' -> '))
+// }
 
 /**
  * @param {ListNode} head
