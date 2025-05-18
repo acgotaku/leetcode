@@ -107,7 +107,7 @@ const getSkyline = function (buildings) {
       return a[0] - b[0]
     }
   })
-  console.log(edges)
+
   const result = []
   const queue = []
   let prev = 0
