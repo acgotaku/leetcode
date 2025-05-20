@@ -25,8 +25,17 @@ const strStr = function (haystack, needle) {
     return -1
   }
   for (let i = 0; i < haystack.length; i++) {
-    if (haystack.substr(i, needle.length) === needle) {
-      return i
+    if (haystack.length - i < needle.length) {
+      return -1
+    }
+    if (haystack[i] === needle[0]) {
+      let j = 1
+      while (j < needle.length && haystack[i + j] === needle[j]) {
+        j++
+      }
+      if (j === needle.length) {
+        return i
+      }
     }
   }
 
